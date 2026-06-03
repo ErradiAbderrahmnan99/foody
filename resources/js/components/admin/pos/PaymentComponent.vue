@@ -36,21 +36,6 @@
                             <i class="lab lab-card-2 lab-font-size-24"></i>
                             <span class="text-xs font-normal leading-none text-heading">{{ $t("label.card") }}</span>
                         </button>
-                        <button data-tab="#mfs" type="button" onclick="createkeyboard('mfs')"
-                            class="other-tabBtn w-fit flex flex-col items-center gap-2 rounded-lg py-3 px-7 border bg-[#F7F7FC] border-[#F7F7FC]"
-                            :class="props.form.pos_payment_method === posPaymentMethodEnum.MOBILE_BANKING ? 'active' : ''"
-                            @click="paymentMethod(posPaymentMethodEnum.MOBILE_BANKING)">
-                            <i class="lab lab-mfs lab-font-size-24"></i>
-                            <span class="text-xs font-normal leading-none text-heading">{{ $t("label.mobile_banking")
-                            }}</span>
-                        </button>
-                        <button data-tab="#otherpay" type="button" onclick="createkeyboard('otherpay')"
-                            class="other-tabBtn w-fit flex flex-col items-center gap-2 rounded-lg py-3 px-7 border bg-[#F7F7FC] border-[#F7F7FC]"
-                            :class="props.form.pos_payment_method === posPaymentMethodEnum.OTHER ? 'active' : ''"
-                            @click="paymentMethod(posPaymentMethodEnum.OTHER)">
-                            <i class="lab lab-other lab-font-size-24"></i>
-                            <span class="text-xs font-normal leading-none text-heading">{{ $t("label.other") }}</span>
-                        </button>
                     </nav>
                 </div>
                 <div id="cash" class="data-tab hidden"
@@ -70,24 +55,7 @@
                     </div>
                 </div>
 
-                <div id="mfs" class="data-tab hidden"
-                    :class="props.form.pos_payment_method === posPaymentMethodEnum.MOBILE_BANKING ? 'active' : ''">
-                    <div class="mb-4">
-                        <h3 class="capitalize font-medium mb-2">{{ $t('label.enter_transaction_id') }}</h3>
-                        <input id="mfs-trans" type="text" ref="mfsInput"
-                            class="h-12 w-full rounded-lg border py-1.5 px-4 placeholder:text-xs border-[#D9DBE9]">
-                    </div>
-                    <div class="board grid grid-cols-10 justify-between gap-1.5 mb-6"></div>
-                </div>
-                <div id="otherpay" class="data-tab hidden"
-                    :class="props.form.pos_payment_method === posPaymentMethodEnum.OTHER ? 'active' : ''">
-                    <div class="mb-4">
-                        <h3 class="capitalize font-medium mb-2">{{ $t('label.enter_payment_note') }}</h3>
-                        <input id="other-trans" type="text" ref="otherInput"
-                            class="h-12 w-full rounded-lg border py-1.5 px-4 placeholder:text-xs border-[#D9DBE9]">
-                    </div>
-                    <div class="board grid grid-cols-10 justify-between gap-1.5 mb-6"></div>
-                </div>
+
 
                 <div class="grid grid-cols-4 gap-x-4 gap-y-3.5 mb-6"
                     v-if="props.form.pos_payment_method === posPaymentMethodEnum.CASH || props.form.pos_payment_method === posPaymentMethodEnum.CARD">
@@ -211,10 +179,6 @@ export default {
 
                 if (this.$props.props.form.pos_payment_method === this.posPaymentMethodEnum.CARD && this.$refs.cardInput.value) {
                     this.$props.props.form.pos_payment_note = this.$refs.cardInput.value;
-                } else if (this.$props.props.form.pos_payment_method === this.posPaymentMethodEnum.MOBILE_BANKING && this.$refs.mfsInput.value) {
-                    this.$props.props.form.pos_payment_note = this.$refs.mfsInput.value;
-                } else if (this.$props.props.form.pos_payment_method === this.posPaymentMethodEnum.OTHER && this.$refs.otherInput.value) {
-                    this.$props.props.form.pos_payment_note = this.$refs.otherInput.value;
                 } else {
                     this.$props.props.form.pos_payment_note = "";
                 }
