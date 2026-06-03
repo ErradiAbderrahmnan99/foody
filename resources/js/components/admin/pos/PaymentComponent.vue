@@ -186,7 +186,11 @@ export default {
                 this.$store.dispatch("defaultAccess/show").then((res) => {
                     this.$props.props.form.branch_id = res.data.data.branch_id;
                     this.$store.dispatch('posOrder/save', this.$props.props.form).then(orderResponse => {
-                        this.$props.props.form.token = "";
+                        const now = new Date();
+                        const hh = String(now.getHours()).padStart(2, '0');
+                        const mm = String(now.getMinutes()).padStart(2, '0');
+                        const ss = String(now.getSeconds()).padStart(2, '0');
+                        this.$props.props.form.token = hh + mm + ss;
                         this.$props.props.form.subtotal = null;
                         this.$props.props.form.discount = 0;
                         this.$props.props.form.delivery_time = null;

@@ -519,6 +519,13 @@ export default {
         this.$refs.dineIn.click();
         this.itemCategories();
         this.itemList();
+        
+        const now = new Date();
+        const hh = String(now.getHours()).padStart(2, '0');
+        const mm = String(now.getMinutes()).padStart(2, '0');
+        const ss = String(now.getSeconds()).padStart(2, '0');
+        this.checkoutProps.form.token = hh + mm + ss;
+
         try {
             this.loading.isActive = true;
             this.$store.dispatch("defaultAccess/show").then((res) => {
