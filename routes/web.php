@@ -1,0 +1,31 @@
+<?php
+
+use App\Http\Controllers\Frontend\PaymentController;
+use App\Http\Controllers\Frontend\RootController;
+use App\Http\PaymentGateways\Gateways\Paytm;
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+
+
+Route::get('/', [RootController::class, 'index'])->middleware(['installed'])->name('home');
+Route::prefix('payment')->name('payment.')->middleware(['installed'])->group(function () {
+    Route::get('/{order}/pay', [PaymentController::class, 'index'])->name('index');
+    Route::post('/{order}/pay', [PaymentController::class, 'payment'])->name('store');
+    Route::match(['get', 'post'], '/{paymentGateway:slug}/{order}/success', [PaymentController::class, 'success'])->name('success');
+    Route::match(['get', 'post'], '/{paymentGateway:slug}/{order}/fail', [PaymentController::class, 'fail'])->name('fail');
+    Route::match(['get', 'post'], '/{paymentGateway:slug}/{order}/cancel', [PaymentController::class, 'cancel'])->name('cancel');
+    Route::get('/successful/{order}', [PaymentController::class, 'successful'])->name('successful');
+});
+
+Route::any('/{any}', [RootController::class, 'index'])->middleware(['installed'])->where(['any' => '.*']);
