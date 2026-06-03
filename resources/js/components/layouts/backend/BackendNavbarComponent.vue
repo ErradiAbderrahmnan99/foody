@@ -7,10 +7,6 @@
         <div class="flex items-center justify-end w-full gap-4">
             <div
                 class="sub-header flex items-center gap-4 transition xh:justify-between xh:fixed xh:left-0 xh:w-full xh:p-4 xh:border-y xh:border-[#EFF0F6] xh:bg-white">
-                <button v-if="$route.path.includes('order-status-screen')" type="button" @click="fullScreen"
-                    class="hidden db-header-toggle lg:flex items-center justify-center w-9 h-9 px-3 rounded-lg bg-[#E0FFED]">
-                    <i class="lab lab-maximize lab-font-size-24 text-[#1AB759]"></i>
-                </button>
                 <div v-if="authBranch === 0" class="relative dropdown-group">
                     <button class="flex items-center text-left gap-2 dropdown-btn">
                         <i class="lab lab-shop lab-font-size-24 font-fill-primary"></i>
@@ -37,7 +33,7 @@
 
                 <div class="flex items-center gap-4">
                     <div class="relative dropdown-group"
-                        v-if="$route.path.includes('kitchen-display-system') || $route.path.includes('order-status-screen')">
+                        v-if="$route.path.includes('kitchen-display-system')">
                         <router-link :to="{ path: '/admin/' + defaultMenu?.url }" @click="closeFullScreen"
                             class="flex items-center gap-2 h-9 px-3 rounded-lg bg-primary-light">
                             <i class="lab-font-size-17 text-primary" :class="defaultMenu?.icon"></i>
@@ -65,7 +61,7 @@
                     </div>
 
                     <router-link
-                        v-if="pos.permission && !$route.path.includes('kitchen-display-system') && !$route.path.includes('order-status-screen')"
+                        v-if="pos.permission && !$route.path.includes('kitchen-display-system')"
                         class="w-9 h-9 rounded-lg flex items-center justify-center bg-[#FFEBD8]"
                         :to="{ path: '/admin/' + pos.url }">
                         <i class="lab lab-pos-bold lab-font-size-16 font-fill-pos"></i>
@@ -73,7 +69,7 @@
                 </div>
             </div>
             <button @click.prevent="handleSidebar"
-                v-if="!$route.path.includes('kitchen-display-system') && !$route.path.includes('order-status-screen')"
+                v-if="!$route.path.includes('kitchen-display-system')"
                 class="fa-solid db-header-nav w-9 h-9 rounded-lg text-primary bg-primary/5"
                 :class="sidebar ? 'fa-align-left' : 'fa-bars'"></button>
 
@@ -431,26 +427,6 @@ export default {
         },
 
         fullScreen: function (event) {
-
-            if (this.$route.path.includes('order-status-screen')) {
-                const elementDbMain = document?.querySelector(".db-main");
-                const elementDbCustomerMain = document?.querySelector(".db-main-customer");
-                const headerDiv = document.querySelector(".db-header");
-
-                if (elementDbMain) {
-                    elementDbMain.classList.remove("db-main");
-                    elementDbMain.classList.add("db-main-customer", "customer-display");
-                    elementDbMain.classList.add("hiddenHeader");
-                    headerDiv.classList.add("active", "hidden")
-
-                } else {
-                    elementDbCustomerMain.classList.remove("db-main-customer", "customer-display");
-                    elementDbCustomerMain.classList.add("db-main");
-                    elementDbCustomerMain.classList.remove("hiddenHeader");
-                    headerDiv.classList.remove("active", "hidden");
-                }
-            }
-
             this.toggleFullscreen();
         },
         toggleFullscreen: function () {

@@ -1,6 +1,6 @@
 <template>
     <aside class="db-sidebar"
-        :class="$route.path.includes('kitchen-display-system') || $route.path.includes('order-status-screen') ? 'hidden' : ''">
+        :class="$route.path.includes('kitchen-display-system') ? 'hidden' : ''">
         <div class="db-sidebar-header">
             <router-link class="w-24" :to="{ name: 'admin.dashboard' }">
                 <img :src="setting.theme_logo" alt="logo">

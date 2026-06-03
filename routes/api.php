@@ -3,12 +3,10 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\OtpController;
 use App\Http\Controllers\Admin\PosController;
 use App\Http\Controllers\Admin\TaxController;
 use App\Http\Controllers\Admin\ChefController;
 use App\Http\Controllers\Admin\ItemController;
-use App\Http\Controllers\Admin\MailController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SiteController;
@@ -19,8 +17,6 @@ use App\Http\Controllers\Auth\SignupController;
 use App\Http\Controllers\Admin\BranchController;
 use App\Http\Controllers\Admin\WaiterController;
 use App\Http\Controllers\Admin\CompanyController;
-use App\Http\Controllers\Admin\LicenseController;
-use App\Http\Controllers\Admin\AnalyticController;
 use App\Http\Controllers\Admin\CurrencyController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\EmployeeController;
@@ -34,7 +30,6 @@ use App\Http\Controllers\Admin\OfferItemController;
 use App\Http\Controllers\Auth\DeactivateController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\SimpleUserController;
-use App\Http\Controllers\Admin\SmsGatewayController;
 use App\Http\Controllers\Auth\GuestSignupController;
 use App\Http\Controllers\Frontend\ProfileController;
 use App\Http\Controllers\Frontend\SettingController;
@@ -49,7 +44,6 @@ use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Auth\RefreshTokenController;
 use App\Http\Controllers\Admin\ItemCategoryController;
 use App\Http\Controllers\Admin\MenuTemplateController;
-use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\AdministratorController;
 use App\Http\Controllers\Admin\DefaultAccessController;
 use App\Http\Controllers\Admin\ItemAttributeController;
@@ -59,11 +53,8 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Frontend\TokenStoreController;
 use App\Http\Controllers\Admin\MyOrderDetailsController;
 use App\Http\Controllers\Admin\PaymentGatewayController;
-use App\Http\Controllers\Admin\AnalyticSectionController;
 use App\Http\Controllers\Admin\CustomerAddressController;
 use App\Http\Controllers\Admin\EmployeeAddressController;
-use App\Http\Controllers\Admin\NotificationAlertController;
-use App\Http\Controllers\Admin\OrderStatusScreenController;
 use App\Http\Controllers\Admin\CreditBalanceReportController;
 use App\Http\Controllers\Admin\AdministratorAddressController;
 use App\Http\Controllers\Admin\KitchenDisplaySystemController;
@@ -155,10 +146,6 @@ Route::prefix('admin')->name('admin.')->middleware(['installed', 'apiKey', 'auth
             Route::match(['put', 'patch'], '/', [SiteController::class, 'update']);
         });
 
-        Route::prefix('mail')->name('mail.')->group(function () {
-            Route::get('/', [MailController::class, 'index']);
-            Route::match(['put', 'patch'], '/', [MailController::class, 'update']);
-        });
 
         Route::prefix('currency')->name('currency.')->group(function () {
             Route::get('/', [CurrencyController::class, 'index']);
@@ -224,49 +211,17 @@ Route::prefix('admin')->name('admin.')->middleware(['installed', 'apiKey', 'auth
             Route::delete('/{page}', [PageController::class, 'destroy']);
         });
 
-        Route::prefix('license')->name('license.')->group(function () {
-            Route::get('/', [LicenseController::class, 'index']);
-            Route::match(['put', 'patch'], '/', [LicenseController::class, 'update']);
-        });
-
         Route::prefix('theme')->name('theme.')->group(function () {
             Route::get('/', [ThemeController::class, 'index']);
             Route::post('/', [ThemeController::class, 'update']);
         });
 
-        Route::prefix('sms-gateway')->name('sms-gateway.')->group(function () {
-            Route::get('/', [SmsGatewayController::class, 'index']);
-            Route::match(['put', 'patch'], '/', [SmsGatewayController::class, 'update']);
-        });
 
         Route::prefix('payment-gateway')->name('payment-gateway.')->group(function () {
             Route::get('/', [PaymentGatewayController::class, 'index']);
             Route::match(['put', 'patch'], '/', [PaymentGatewayController::class, 'update']);
         });
 
-        Route::prefix('analytic')->name('analytic.')->group(function () {
-            Route::get('/', [AnalyticController::class, 'index']);
-            Route::get('/show/{analytic}', [AnalyticController::class, 'show']);
-            Route::post('/', [AnalyticController::class, 'store']);
-            Route::match(['put', 'patch'], '/{analytic}', [AnalyticController::class, 'update']);
-            Route::delete('/{analytic}', [AnalyticController::class, 'destroy']);
-        });
-
-        Route::prefix('analytic-section')->name('analytic-section.')->group(function () {
-            Route::get('/{analytic}', [AnalyticSectionController::class, 'index']);
-            Route::post('/{analytic}', [AnalyticSectionController::class, 'store']);
-            Route::match(
-                ['put', 'patch'],
-                '/{analytic}/{analyticSection}',
-                [AnalyticSectionController::class, 'update']
-            );
-            Route::delete('/{analytic}/{analyticSection}', [AnalyticSectionController::class, 'destroy']);
-        });
-
-        Route::prefix('otp')->name('otp.')->group(function () {
-            Route::get('/', [OtpController::class, 'index']);
-            Route::match(['put', 'patch'], '/', [OtpController::class, 'update']);
-        });
 
         Route::prefix('role')->name('role.')->group(function () {
             Route::get('/', [RoleController::class, 'index']);
@@ -294,15 +249,6 @@ Route::prefix('admin')->name('admin.')->middleware(['installed', 'apiKey', 'auth
             Route::post('/file-text/store', [LanguageController::class, 'fileTextStore']);
         });
 
-        Route::prefix('notification-alert')->name('notification-alert.')->group(function () {
-            Route::get('/', [NotificationAlertController::class, 'index']);
-            Route::match(['put', 'patch'], '/', [NotificationAlertController::class, 'update']);
-        });
-
-        Route::prefix('notification')->name('notification.')->group(function () {
-            Route::get('/', [NotificationController::class, 'index']);
-            Route::post('/', [NotificationController::class, 'update']);
-        });
     });
 
     Route::prefix('customer')->name('customer.')->group(function () {
@@ -509,10 +455,7 @@ Route::prefix('admin')->name('admin.')->middleware(['installed', 'apiKey', 'auth
         Route::post('/change-status/{order}', [KitchenDisplaySystemController::class, 'changeStatus']);
         Route::get('/items', [KitchenDisplaySystemController::class, 'orderItems']);
     });
-    Route::prefix('oss-order')->name('ossOrder.')->group(function () {
-        Route::get('/', [OrderStatusScreenController::class, 'index']);
-        Route::get('/popular-items', [OrderStatusScreenController::class, 'mostPopularItems']);
-    });
+
 
     Route::prefix('waiter')->name('waiter.')->group(function () {
         Route::get('/', [WaiterController::class, 'index']);

@@ -13,15 +13,9 @@ import TaxComponent from "../../components/admin/settings/Tax/TaxComponent";
 import TaxListComponent from "../../components/admin/settings/Tax/TaxListComponent";
 import CurrencyComponent from "../../components/admin/settings/Currency/CurrencyComponent";
 import CurrencyListComponent from "../../components/admin/settings/Currency/CurrencyListComponent";
-import MailComponent from "../../components/admin/settings/Mail/MailComponent";
 import PageComponent from "../../components/admin/settings/Page/PageComponent";
 import PageListComponent from "../../components/admin/settings/Page/PageListComponent";
 import PageShowComponent from "../../components/admin/settings/Page/PageShowComponent";
-import OtpComponent from "../../components/admin/settings/Otp/OtpComponent";
-import LicenseComponent from "../../components/admin/settings/License/LicenseComponent";
-import AnalyticComponent from "../../components/admin/settings/analytics/AnalyticComponent";
-import AnalyticListComponent from "../../components/admin/settings/analytics/AnalyticListComponent";
-import AnalyticShowComponent from "../../components/admin/settings/analytics/AnalyticShowComponent";
 import RoleComponent from "../../components/admin/settings/Role/RoleComponent";
 import RoleListComponent from "../../components/admin/settings/Role/RoleListComponent";
 import RoleShowComponent from "../../components/admin/settings/Role/RoleShowComponent";
@@ -30,9 +24,6 @@ import LanguageComponent from "../../components/admin/settings/Language/Language
 import LanguageListComponent from "../../components/admin/settings/Language/LanguageListComponent";
 import LanguageShowComponent from "../../components/admin/settings/Language/LanguageShowComponent";
 import PaymentGatewayComponent from "../../components/admin/settings/PaymentGateway/PaymentGatewayComponent";
-import SmsGatewayComponent from "../../components/admin/settings/SmsGateway/SmsGatewayComponent";
-import NotificationAlertComponent from "../../components/admin/settings/NotificationAlert/NotificationAlertComponent";
-import NotificationComponent from "../../components/admin/settings/Notification/NotificationComponent";
 
 export default [
     {
@@ -105,65 +96,7 @@ export default [
                     },
                 ],
             },
-            {
-                path: "mail",
-                component: MailComponent,
-                name: "admin.settings.mail",
-                meta: {
-                    isFrontend: false,
-                    auth: true,
-                    permissionUrl: "settings",
-                    breadcrumb: "mail",
-                },
-            },
-            {
-                path: "otp",
-                component: OtpComponent,
-                name: "admin.settings.otp",
-                meta: {
-                    isFrontend: false,
-                    auth: true,
-                    permissionUrl: "settings",
-                    breadcrumb: "otp",
-                },
-            },
-            {
-                path: "analytics",
-                component: AnalyticComponent,
-                name: "admin.settings.analytic",
-                redirect: { name: "admin.settings.analytic.list" },
-                meta: {
-                    isFrontend: false,
-                    auth: true,
-                    permissionUrl: "settings",
-                    breadcrumb: "analytics",
-                },
-                children: [
-                    {
 
-                        path: "list",
-                        component: AnalyticListComponent,
-                        name: "admin.settings.analytic.list",
-                        meta: {
-                            isFrontend: false,
-                            auth: true,
-                            permissionUrl: "settings",
-                            breadcrumb: "",
-                        },
-                    },
-                    {
-                        path: "show/:id",
-                        component: AnalyticShowComponent,
-                        name: "admin.settings.analytic.show",
-                        meta: {
-                            isFrontend: false,
-                            auth: true,
-                            permissionUrl: "settings",
-                            breadcrumb: "view",
-                        },
-                    },
-                ]
-            },
             {
                 path: "theme",
                 component: ThemeComponent,
@@ -394,17 +327,7 @@ export default [
                     },
                 ],
             },
-            {
-                path: "sms-gateway",
-                component: SmsGatewayComponent,
-                name: "admin.settings.smsGateway",
-                meta: {
-                    isFrontend: false,
-                    auth: true,
-                    permissionUrl: "settings",
-                    breadcrumb: "sms_gateway",
-                },
-            },
+
             {
                 path: "payment-gateway",
                 component: PaymentGatewayComponent,
@@ -416,39 +339,8 @@ export default [
                     breadcrumb: "payment_gateway",
                 },
             },
-            {
-                path: "license",
-                component: LicenseComponent,
-                name: "admin.settings.license",
-                meta: {
-                    isFrontend: false,
-                    auth: true,
-                    permissionUrl: "settings",
-                    breadcrumb: "license",
-                }
-            },
-            {
-                path: "notification-alert",
-                component: NotificationAlertComponent,
-                name: "admin.settings.notificationAlert",
-                meta: {
-                    isFrontend: false,
-                    auth: true,
-                    permissionUrl: "settings",
-                    breadcrumb: "notification_alert",
-                }
-            },
-            {
-                path: "notification",
-                component: NotificationComponent,
-                name: "admin.settings.notification",
-                meta: {
-                    isFrontend: false,
-                    auth: true,
-                    permissionUrl: "settings",
-                    breadcrumb: "notification",
-                },
-            },
+
+
         ],
     },
 ];

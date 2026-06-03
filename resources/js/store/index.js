@@ -11,19 +11,14 @@ import { item } from "./modules/item";
 import { itemVariation } from "./modules/itemVariation";
 import { tax } from "./modules/tax";
 import { currency } from "./modules/currency";
-import { mail } from "./modules/mail";
 import { menuSection } from "./modules/menuSection";
 import { page } from "./modules/page";
 import { menuTemplate } from "./modules/menuTemplate";
 import { customer } from "./modules/customer";
-import { otp } from "./modules/otp";
 import { administrator } from "./modules/administrator";
 import { defaultAccess } from "./modules/defaultAccess";
 import { administratorAddress } from "./modules/administratorAddress";
 import { customerAddress } from "./modules/customerAddress";
-import { license } from "./modules/license";
-import { analytic } from "./modules/analytic";
-import { analyticSection } from "./modules/analyticSection";
 import { role } from "./modules/role";
 import { permission } from "./modules/permission";
 import { theme } from './modules/theme';
@@ -42,7 +37,6 @@ import { site } from './modules/site';
 import { dashboard } from './modules/dashboard';
 import { offerItem } from './modules/offerItem';
 import { paymentGateway } from './modules/paymentGateway';
-import { smsGateway } from './modules/smsGateway';
 import { salesReport } from './modules/salesReport';
 import { itemsReport } from './modules/itemsReport';
 import { frontendEditProfile } from './modules/frontend/frontendEditProfile';
@@ -65,9 +59,7 @@ import { tableDiningTable } from "./modules/table/tableDiningTable";
 import { tableDiningOrder } from "./modules/table/tableDiningOrder";
 import { tableOrder } from './modules/tableOrder';
 import { notificationAlert } from './modules/notificationAlert';
-import { notification } from './modules/notification';
 import { kitchenDisplaySystemOrder } from './modules/kitchenDisplaySystemOrder';
-import { orderStatusScreenOrder } from './modules/orderStatusScreenOrder';
 import { chef } from './modules/chef';
 import { waiter } from './modules/waiter';
 import { chefAddress } from './modules/chefAddress';
@@ -89,19 +81,14 @@ export default new createStore({
         itemVariation,
         tax,
         currency,
-        mail,
         page,
         menuSection,
         menuTemplate,
         customer,
         customerAddress,
-        otp,
         administrator,
         defaultAccess,
         administratorAddress,
-        license,
-        analytic,
-        analyticSection,
         role,
         permission,
         theme,
@@ -120,7 +107,6 @@ export default new createStore({
         dashboard,
         offerItem,
         paymentGateway,
-        smsGateway,
         salesReport,
         itemsReport,
         frontendEditProfile,
@@ -143,9 +129,7 @@ export default new createStore({
         tableDiningOrder,
         tableOrder,
         notificationAlert,
-        notification,
         kitchenDisplaySystemOrder,
-        orderStatusScreenOrder,
         chef,
         waiter,
         chefAddress,

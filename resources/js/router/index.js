@@ -23,7 +23,6 @@ import tableOrderRoutes from "./modules/tableOrderRoutes";
 import adminTableOrderRoutes from "./modules/adminTableOrderRoutes";
 import diningTableRoutes from "./modules/diningTableRoutes";
 import kitchenDisplaySystemRoutes from "./modules/kitchenDisplaySystemRoutes";
-import orderStatusScreenRoutes from "./modules/orderStatusScreenRoutes";
 import waiterRoutes from "./modules/waiterRoutes";
 import chefRoutes from "./modules/chefRoutes";
 
@@ -79,7 +78,6 @@ export const routes = baseRoutes.concat(
     adminTableOrderRoutes,
     diningTableRoutes,
     kitchenDisplaySystemRoutes,
-    orderStatusScreenRoutes,
     waiterRoutes,
     chefRoutes
 );

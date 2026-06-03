@@ -30,7 +30,6 @@ class RolePermissionTableSeeder extends Seeder
                 ['name' => 'online-orders'],
                 ['name' => 'table-orders'],
                 ['name' => 'kitchen-display-system'],
-                ['name' => 'order-status-screen'],
                 ['name' => 'push-notifications'],
                 ['name' => 'push-notifications_create'],
                 ['name' => 'push-notifications_edit'],
@@ -85,7 +84,6 @@ class RolePermissionTableSeeder extends Seeder
             $chefPermissions = [
                 ['name' => 'dashboard'],
                 ['name' => 'kitchen-display-system'],
-                ['name' => 'order-status-screen'],
             ];
             $chefPermissions = Permission::whereIn('name', $chefPermissions)->get();
             $chef->givePermissionTo($chefPermissions);

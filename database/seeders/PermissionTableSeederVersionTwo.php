@@ -26,14 +26,7 @@ class PermissionTableSeederVersionTwo extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            [
-                'title'      => 'O.S.S',
-                'name'       => 'order-status-screen',
-                'guard_name' => 'sanctum',
-                'url'        => 'order-status-screen',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
+
             [
                 'title'      => 'Waiters',
                 'name'       => 'waiters',
@@ -125,7 +118,6 @@ class PermissionTableSeederVersionTwo extends Seeder
 
         $adminPermissions = [
             ['name' => 'kitchen-display-system'],
-            ['name' => 'order-status-screen'],
             ['name' => 'waiters'],
             ['name' => 'waiters_create'],
             ['name' => 'waiters_edit'],
@@ -145,7 +137,6 @@ class PermissionTableSeederVersionTwo extends Seeder
         $chefsPermissions = [
             ['name' => 'dashboard'],
             ['name' => 'kitchen-display-system'],
-            ['name' => 'order-status-screen'],
         ];
 
         $chefRole = Role::find(EnumRole::CHEF);

@@ -18,27 +18,6 @@
                 <i class="lab lab-branches text-sm"></i>
                 {{ $t("menu.branches") }}
             </router-link>
-            <router-link :to="{ name: 'admin.settings.mail' }" class="db-tab-btn">
-                <i class="lab lab-mail text-sm"></i>
-                {{ $t("menu.mail") }}
-            </router-link>
-            <router-link :to="{ name: 'admin.settings.otp' }" class="db-tab-btn">
-                <i class="lab lab-otp text-sm"></i>
-                {{ $t("menu.otp") }}
-            </router-link>
-            <router-link :to="{ name: 'admin.settings.notification' }" class="db-tab-btn">
-                <i class="lab lab-notification text-sm"></i>
-                {{ $t("menu.notification") }}
-            </router-link>
-            <router-link :to="{ name: 'admin.settings.notificationAlert' }" class="db-tab-btn">
-                <i class="lab lab-license text-sm"></i>
-                {{ $t("menu.notification_alert") }}
-            </router-link>
-
-            <router-link :to="{ name: 'admin.settings.analytic' }" class="db-tab-btn">
-                <i class="lab lab-analytics text-sm"></i>
-                {{ $t("menu.analytics") }}
-            </router-link>
             <router-link :to="{ name: 'admin.settings.theme' }" class="db-tab-btn">
                 <i class="lab lab-theme text-sm"></i>
                 {{ $t("menu.theme") }}
@@ -71,17 +50,9 @@
                 <i class="lab lab-languages text-sm"></i>
                 {{ $t("menu.languages") }}
             </router-link>
-            <router-link :to="{ name: 'admin.settings.smsGateway' }" class="db-tab-btn">
-                <i class="lab lab-sms text-sm"></i>
-                {{ $t("menu.sms_gateway") }}
-            </router-link>
             <router-link :to="{ name: 'admin.settings.paymentGateway' }" class="db-tab-btn">
                 <i class="lab lab-payment-gateway text-sm"></i>
                 {{ $t("menu.payment_gateway") }}
-            </router-link>
-            <router-link :to="{ name: 'admin.settings.license' }" class="db-tab-btn">
-                <i class="lab lab-license text-sm"></i>
-                {{ $t("menu.license") }}
             </router-link>
         </nav>
     </div>

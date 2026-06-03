@@ -140,14 +140,7 @@ class PermissionTableSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            [
-                'title'      => 'O.S.S',
-                'name'       => 'order-status-screen',
-                'guard_name' => 'sanctum',
-                'url'        => 'order-status-screen',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
+
             [
                 'title'      => 'Offers',
                 'name'       => 'offers',
