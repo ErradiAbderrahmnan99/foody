@@ -30,7 +30,7 @@ class UserTableSeeder extends Seeder
             'password'          => bcrypt('123456'),
             'branch_id'         => 0,
             'status'            => Status::ACTIVE,
-            'country_code'      => '+880',
+            'country_code'      => '+212',
             'is_guest'          => Ask::NO
         ]);
         $admin->assignRole(EnumRole::ADMIN);
@@ -38,7 +38,7 @@ class UserTableSeeder extends Seeder
         if ($envService->getValue('DEMO')) {
             Address::create([
                 'label'     => 'Home',
-                'address'   => 'Dhaka Bangladesh',
+                'address'   => 'Morocco',
                 'apartment' => rand(0, 999) . ', Mirpur 10',
                 'latitude'  => '23.8069',
                 'longitude' => '90.3687',
@@ -46,7 +46,7 @@ class UserTableSeeder extends Seeder
             ]);
             Address::create([
                 'label'     => 'Work',
-                'address'   => 'Dhaka Bangladesh',
+                'address'   => 'Morocco',
                 'apartment' => rand(0, 999) . ', Mirpur 1',
                 'latitude'  => '23.7956',
                 'longitude' => '90.3537',
@@ -63,7 +63,7 @@ class UserTableSeeder extends Seeder
             'password'          => bcrypt('123456'),
             'branch_id'         => 0,
             'status'            => Status::ACTIVE,
-            'country_code'      => '+880',
+            'country_code'      => '+212',
             'is_guest'          => Ask::NO
         ]);
         $customer->assignRole(EnumRole::CUSTOMER);
@@ -71,7 +71,7 @@ class UserTableSeeder extends Seeder
         if ($envService->getValue('DEMO')) {
             Address::create([
                 'label'     => 'Home',
-                'address'   => 'Dhaka Bangladesh',
+                'address'   => 'Morocco',
                 'apartment' => rand(0, 999) . ', Mirpur 2',
                 'latitude'  => '23.7873',
                 'longitude' => '90.3514',
@@ -79,7 +79,7 @@ class UserTableSeeder extends Seeder
             ]);
             Address::create([
                 'label'     => 'Work',
-                'address'   => 'Dhaka Bangladesh',
+                'address'   => 'Morocco',
                 'apartment' => rand(0, 999) . ', Gulshan 2',
                 'latitude'  => '23.7948',
                 'longitude' => '90.4143',
@@ -97,13 +97,13 @@ class UserTableSeeder extends Seeder
                 'password'          => bcrypt('123456'),
                 'branch_id'         => 0,
                 'status'            => Status::ACTIVE,
-                'country_code'      => '+880',
+                'country_code'      => '+212',
                 'is_guest'          => Ask::NO
             ]);
             $customerOne->assignRole(EnumRole::CUSTOMER);
             Address::create([
                 'label'     => 'Home',
-                'address'   => 'Dhaka Bangladesh',
+                'address'   => 'Morocco',
                 'apartment' => rand(0, 999) . ', Gulshan 2',
                 'latitude'  => '23.7948',
                 'longitude' => '90.4143',
@@ -111,7 +111,7 @@ class UserTableSeeder extends Seeder
             ]);
             Address::create([
                 'label'     => 'Work',
-                'address'   => 'Dhaka Bangladesh',
+                'address'   => 'Morocco',
                 'apartment' => rand(0, 999) . ', Mirpur 2',
                 'latitude'  => '23.7873',
                 'longitude' => '90.3514',
@@ -126,13 +126,13 @@ class UserTableSeeder extends Seeder
                 'password'          => bcrypt('123456'),
                 'branch_id'         => 1,
                 'status'            => Status::ACTIVE,
-                'country_code'      => '+880',
+                'country_code'      => '+212',
                 'is_guest'          => Ask::NO
             ]);
             $employeeOne->assignRole(EnumRole::BRANCH_MANAGER);
             Address::create([
                 'label'     => 'Home',
-                'address'   => 'Dhaka Bangladesh',
+                'address'   => 'Morocco',
                 'apartment' => rand(0, 999) . ', Mirpur 2',
                 'latitude'  => '23.7873',
                 'longitude' => '90.3514',
@@ -140,7 +140,7 @@ class UserTableSeeder extends Seeder
             ]);
             Address::create([
                 'label'     => 'Work',
-                'address'   => 'Dhaka Bangladesh',
+                'address'   => 'Morocco',
                 'apartment' => rand(0, 999) . ', Mirpur 1',
                 'latitude'  => '23.7956',
                 'longitude' => '90.3537',
@@ -156,13 +156,13 @@ class UserTableSeeder extends Seeder
                 'password'          => bcrypt('123456'),
                 'branch_id'         => 2,
                 'status'            => Status::ACTIVE,
-                'country_code'      => '+880',
+                'country_code'      => '+212',
                 'is_guest'          => Ask::NO
             ]);
             $employeeTwo->assignRole(EnumRole::BRANCH_MANAGER);
             Address::create([
                 'label'     => 'Home',
-                'address'   => 'Dhaka Bangladesh',
+                'address'   => 'Morocco',
                 'apartment' => rand(0, 999) . ', Gulshan 2',
                 'latitude'  => '23.7948',
                 'longitude' => '90.4143',
@@ -170,7 +170,7 @@ class UserTableSeeder extends Seeder
             ]);
             Address::create([
                 'label'     => 'Work',
-                'address'   => 'Dhaka Bangladesh',
+                'address'   => 'Morocco',
                 'apartment' => rand(0, 999) . ', Gulshan 1',
                 'latitude'  => '23.7821',
                 'longitude' => '90.4161',
@@ -186,13 +186,13 @@ class UserTableSeeder extends Seeder
                 'password'          => bcrypt('123456'),
                 'branch_id'         => 1,
                 'status'            => Status::ACTIVE,
-                'country_code'      => '+880',
+                'country_code'      => '+212',
                 'is_guest'          => Ask::NO
             ]);
             $posOperatorOne->assignRole(EnumRole::POS_OPERATOR);
             Address::create([
                 'label'     => 'Home',
-                'address'   => 'Dhaka Bangladesh',
+                'address'   => 'Morocco',
                 'apartment' => rand(0, 999) . ', Mirpur 2',
                 'latitude'  => '23.7873',
                 'longitude' => '90.3514',
@@ -200,7 +200,7 @@ class UserTableSeeder extends Seeder
             ]);
             Address::create([
                 'label'     => 'Work',
-                'address'   => 'Dhaka Bangladesh',
+                'address'   => 'Morocco',
                 'apartment' => rand(0, 999) . ', Mirpur 1',
                 'latitude'  => '23.7956',
                 'longitude' => '90.3537',
@@ -216,13 +216,13 @@ class UserTableSeeder extends Seeder
                 'password'          => bcrypt('123456'),
                 'branch_id'         => 2,
                 'status'            => Status::ACTIVE,
-                'country_code'      => '+880',
+                'country_code'      => '+212',
                 'is_guest'          => Ask::NO
             ]);
             $posOperatorTwo->assignRole(EnumRole::POS_OPERATOR);
             Address::create([
                 'label'     => 'Home',
-                'address'   => 'Dhaka Bangladesh',
+                'address'   => 'Morocco',
                 'apartment' => rand(0, 999) . ', Gulshan 2',
                 'latitude'  => '23.7948',
                 'longitude' => '90.4143',
@@ -230,7 +230,7 @@ class UserTableSeeder extends Seeder
             ]);
             Address::create([
                 'label'     => 'Work',
-                'address'   => 'Dhaka Bangladesh',
+                'address'   => 'Morocco',
                 'apartment' => rand(0, 999) . ', Gulshan 1',
                 'latitude'  => '23.7821',
                 'longitude' => '90.4161',
@@ -246,13 +246,13 @@ class UserTableSeeder extends Seeder
                 'password'          => bcrypt('123456'),
                 'branch_id'         => 1,
                 'status'            => Status::ACTIVE,
-                'country_code'      => '+880',
+                'country_code'      => '+212',
                 'is_guest'          => Ask::NO
             ]);
             $stuffOne->assignRole(EnumRole::STUFF);
             Address::create([
                 'label'     => 'Home',
-                'address'   => 'Dhaka Bangladesh',
+                'address'   => 'Morocco',
                 'apartment' => rand(0, 999) . ', Mirpur 2',
                 'latitude'  => '23.7873',
                 'longitude' => '90.3514',
@@ -260,7 +260,7 @@ class UserTableSeeder extends Seeder
             ]);
             Address::create([
                 'label'     => 'Work',
-                'address'   => 'Dhaka Bangladesh',
+                'address'   => 'Morocco',
                 'apartment' => rand(0, 999) . ', Mirpur 1',
                 'latitude'  => '23.7956',
                 'longitude' => '90.3537',
@@ -276,13 +276,13 @@ class UserTableSeeder extends Seeder
                 'password'          => bcrypt('123456'),
                 'branch_id'         => 2,
                 'status'            => Status::ACTIVE,
-                'country_code'      => '+880',
+                'country_code'      => '+212',
                 'is_guest'          => Ask::NO
             ]);
             $stuffTwo->assignRole(EnumRole::STUFF);
             Address::create([
                 'label'     => 'Home',
-                'address'   => 'Dhaka Bangladesh',
+                'address'   => 'Morocco',
                 'apartment' => rand(0, 999) . ', Gulshan 2',
                 'latitude'  => '23.7948',
                 'longitude' => '90.4143',
@@ -290,7 +290,7 @@ class UserTableSeeder extends Seeder
             ]);
             Address::create([
                 'label'     => 'Work',
-                'address'   => 'Dhaka Bangladesh',
+                'address'   => 'Morocco',
                 'apartment' => rand(0, 999) . ', Gulshan 1',
                 'latitude'  => '23.7821',
                 'longitude' => '90.4161',
@@ -305,13 +305,13 @@ class UserTableSeeder extends Seeder
                 'password'          => bcrypt('123456'),
                 'branch_id'         => 1,
                 'status'            => Status::ACTIVE,
-                'country_code'      => '+880',
+                'country_code'      => '+212',
                 'is_guest'          => Ask::NO
             ]);
             $waiter->assignRole(EnumRole::WAITER);
             Address::create([
                 'label'     => 'Home',
-                'address'   => 'Dhaka Bangladesh',
+                'address'   => 'Morocco',
                 'apartment' => rand(0, 999) . ', Mirpur 2',
                 'latitude'  => '23.7873',
                 'longitude' => '90.3514',
@@ -319,7 +319,7 @@ class UserTableSeeder extends Seeder
             ]);
             Address::create([
                 'label'     => 'Work',
-                'address'   => 'Dhaka Bangladesh',
+                'address'   => 'Morocco',
                 'apartment' => rand(0, 999) . ', Mirpur 1',
                 'latitude'  => '23.7956',
                 'longitude' => '90.3537',
@@ -335,13 +335,13 @@ class UserTableSeeder extends Seeder
                 'password'          => bcrypt('123456'),
                 'branch_id'         => 1,
                 'status'            => Status::ACTIVE,
-                'country_code'      => '+880',
+                'country_code'      => '+212',
                 'is_guest'          => Ask::NO
             ]);
             $chef->assignRole(EnumRole::CHEF);
             Address::create([
                 'label'     => 'Home',
-                'address'   => 'Dhaka Bangladesh',
+                'address'   => 'Morocco',
                 'apartment' => rand(0, 999) . ', Mirpur 2',
                 'latitude'  => '23.7873',
                 'longitude' => '90.3514',
@@ -349,7 +349,7 @@ class UserTableSeeder extends Seeder
             ]);
             Address::create([
                 'label'     => 'Work',
-                'address'   => 'Dhaka Bangladesh',
+                'address'   => 'Morocco',
                 'apartment' => rand(0, 999) . ', Mirpur 1',
                 'latitude'  => '23.7956',
                 'longitude' => '90.3537',
