@@ -424,9 +424,6 @@ class OrderService
                 $this->order->delivery_time   = "$start - $end";
                 $this->order->save();
 
-                SendOrderGotMail::dispatch(['order_id' => $this->order->id]);
-                SendOrderGotSms::dispatch(['order_id' => $this->order->id]);
-                SendOrderGotPush::dispatch(['order_id' => $this->order->id]);
             });
             return $this->order;
         } catch (Exception $exception) {

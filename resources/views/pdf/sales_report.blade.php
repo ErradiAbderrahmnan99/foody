@@ -103,7 +103,7 @@
         <div class="report">
             <p style="margin: 0px 0px 8px 0px;font-size: 16px;font-weight: bold">{{ App\Libraries\AppLibrary::textShortener($company['company_name'], 60) }}</p>
             <p>{{ App\Libraries\AppLibrary::textShortener($company['company_address'],60) }}</p>
-            <p  style="color: #ff006b;margin: 0px 0px 8px 0px;font-size: 16px;font-weight: bold;">{{ trans('all.label.sales_report', [], 'en') }}</p>
+            <p  style="color: #1AB759;margin: 0px 0px 8px 0px;font-size: 16px;font-weight: bold;">{{ trans('all.label.sales_report', [], 'en') }}</p>
             <table>
                 <thead>
                     <tr>

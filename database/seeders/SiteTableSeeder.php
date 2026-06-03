@@ -38,7 +38,7 @@ class SiteTableSeeder extends Seeder
             ) ? 'Fake-map-key' : '',
             'site_copyright'                 => $envService->getValue(
                 'DEMO'
-            ) ? '© FoodScan by iNiLabs 2025, All Rights Reserved' : '',
+            ) ? '© Foody 2026, All Rights Reserved' : '',
             'site_language_switch'        => Activity::ENABLE,
             'site_app_debug'              => Activity::DISABLE,
             'site_auto_update'            => Activity::DISABLE,

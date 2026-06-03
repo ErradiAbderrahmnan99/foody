@@ -5,9 +5,9 @@
 
 @layer base {
     :root {
-        --primary: 255 0 107;
-        --primary-slate: 255 59 142;
-        --primary-light: 255 237 244;
+        --primary: 26 183 89;
+        --primary-slate: 18 155 72;
+        --primary-light: 224 255 237;
         --client-font: 'Rubik', sans-serif;
         --admin-font: 'Public Sans', sans-serif;
     }
@@ -547,8 +547,8 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .btnr { @apply py-1.5 px-2 shadow-[0px_3px_8px_rgba(0,0,0,0.24)] bg-white rounded-md cursor-pointer w-full flex items-center justify-center}
 #cursor { @apply text-3xl inline-block pt-2.5}
 .btnr:active{@apply bg-[rgb(177,176,176)]}
-.btnr:hover{@apply bg-[#1772ff0d]}
-.num:hover{@apply bg-[#1772ff0d]}
+.btnr:hover{@apply bg-primary/5}
+.num:hover{@apply bg-primary/5}
 .btnr::selection {
     user-select: none;
 }
