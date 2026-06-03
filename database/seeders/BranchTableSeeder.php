@@ -17,7 +17,7 @@ class BranchTableSeeder extends Seeder
     public function run()
     {
         Branch::create([
-            'name'      => 'Mirpur-1 (main)',
+            'name'      => 'Mirpur-1',
             'email'     => 'mirpur@inilabs.xyz',
             'phone'     => '+536464646464',
             'latitude'  => 23.8042375,

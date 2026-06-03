@@ -101,17 +101,6 @@ class MenuTableSeeder extends Seeder
                         'created_at' => now(),
                         'updated_at' => now()
 
-                    ],
-                    [
-                        'name'       => 'O.S.S',
-                        'language'   => 'o_s_s',
-                        'url'        => 'order-status-screen',
-                        'icon'       => 'lab lab-cds',
-                        'priority'   => 100,
-                        'status'     => 1,
-                        'created_at' => now(),
-                        'updated_at' => now()
-
                     ]
                 ],
             ],
