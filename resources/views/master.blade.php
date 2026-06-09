@@ -10,8 +10,7 @@
     <!-- FONTS -->
     <link rel="stylesheet" href="{{ asset('themes/default/fonts/fontawesome/fontawesome.css') }}">
     <link rel="stylesheet" href="{{ asset('themes/default/fonts/lab/lab.css') }}">
-    <link rel="stylesheet" href="{{ asset('themes/default/fonts/typography/public/public.css') }}">
-    <link rel="stylesheet" href="{{ asset('themes/default/fonts/typography/rubik/rubik.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- CUSTOM STYLE -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">

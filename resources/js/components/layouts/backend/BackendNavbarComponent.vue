@@ -1,7 +1,7 @@
 <template>
     <div class="backdrop"></div>
     <header class="db-header">
-        <router-link class="w-40 flex-shrink-0" :to="{ name: 'admin.dashboard' }" @click="closeFullScreen">
+        <router-link class="w-40 flex-shrink-0 lg:hidden" :to="{ name: 'admin.dashboard' }" @click="closeFullScreen">
             <img class="w-full" :src="setting.theme_logo" alt="logo">
         </router-link>
         <div class="flex items-center justify-end w-full gap-4">
@@ -140,7 +140,7 @@
                 <span class="block">{{ $t('message.please_check_your_order_list') }}</span>
             </h3>
             <router-link @click.prevent="closeOrderNotificationModal" :to="{ path: '/admin/' + orderNotification.url }"
-                class="db-btn h-[38px] shadow-[0px_6px_10px_rgba(23,_114,_255,_0.24)] bg-primary text-white">
+                class="db-btn h-[38px] shadow-[0px_6px_10px_rgba(26,_183,_89,_0.24)] bg-primary text-white">
                 {{ $t('button.let_me_check') }}
             </router-link>
         </div>

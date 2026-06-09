@@ -23,8 +23,8 @@ module.exports = {
               "80": "80",
           },
           fontFamily: {
-              "rubik": ["'Rubik', sans-serif"],
-              "public": ["'Public Sans', sans-serif"],
+              "rubik": ["'Inter', sans-serif"],
+              "public": ["'Inter', sans-serif"],
               "awesome": ["'Font Awesome 6 Free'"],
               "lab": ["'Lab'"]
           },
@@ -32,8 +32,8 @@ module.exports = {
               "heading": "#1F1F39",
               "paragraph": "#6E7191",
               "placeholder": "#A0A3BD",
-              "primary": "rgb(23 114 255 / <alpha-value>)",
-              "primary-light": "rgb(220 234 255 / <alpha-value>)",
+              "primary": "rgb(var(--primary) / <alpha-value>)",
+              "primary-light": "rgb(var(--primary-light) / <alpha-value>)",
           },
           boxShadow: {
               "sidebar": "15px 0px 25px 0px rgba(0, 0, 0, 0.08)",

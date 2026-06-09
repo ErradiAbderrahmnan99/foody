@@ -8,8 +8,8 @@
         --primary: 26 183 89;
         --primary-slate: 18 155 72;
         --primary-light: 224 255 237;
-        --client-font: 'Rubik', sans-serif;
-        --admin-font: 'Public Sans', sans-serif;
+        --client-font: 'Inter', sans-serif;
+        --admin-font: 'Inter', sans-serif;
     }
     
     a,
@@ -88,7 +88,7 @@
               LAYOUT PART START
     ====================================*/
     /* HEADER */
-    .db-header { @apply fixed top-0 left-0 z-30 w-full p-4 flex items-center justify-between lg:gap-36 bg-white transition }
+    .db-header { @apply fixed top-0 left-0 z-30 w-full p-4 flex items-center justify-between lg:gap-36 bg-white border-b border-gray-100 shadow-sm transition ltr:lg:pl-[280px] rtl:lg:pr-[280px] }
     .db-header-left { @apply flex items-center w-full md:gap-36 }
     .db-header-right { @apply flex-shrink-0 w-fit flex items-center gap-2.5 sm:gap-4 }
     .db-header-logo { @apply flex-auto w-28 flex-shrink-0 }
@@ -104,22 +104,28 @@
     .db-header-profile-dropdown-menu { @apply flex items-center justify-start gap-2.5 w-full whitespace-nowrap pl-3 pr-8 py-1.5 text-sm rounded-md capitalize transition text-gray-600 hover:bg-gray-100 }
 
     /* SIDEBAR */
-    .db-sidebar { @apply fixed top-0 ltr:left-0 rtl:right-0 z-[39] w-[260px] p-4 h-screen ltr:-translate-x-[100%] rtl:translate-x-full ltr:lg:translate-x-0 rtl:lg:-translate-x-0 lg:top-16 lg:h-[calc(100vh_-_64px)] overflow-y-auto thin-scrolling ltr:shadow-db-sidebar-right rtl:shadow-db-sidebar-left transition bg-white }
-    .db-sidebar.active { @apply ltr:translate-x-0 rtl:-translate-x-0 ltr:lg:-translate-x-[100%] rtl:lg:translate-x-full shadow-sidebar lg:shadow-none }
-    .db-sidebar-header { @apply flex lg:hidden items-center justify-between mb-8 }
+    .db-sidebar { @apply fixed top-0 ltr:left-0 rtl:right-0 z-[39] w-[260px] p-4 h-screen ltr:-translate-x-[100%] rtl:translate-x-full ltr:lg:translate-x-0 rtl:lg:-translate-x-0 overflow-y-auto thin-scrolling transition bg-[#1e1e2d] text-[#9899ac] border-r border-slate-800/20 }
+    .db-sidebar.active { @apply ltr:translate-x-0 rtl:-translate-x-0 ltr:lg:-translate-x-[100%] rtl:lg:translate-x-full shadow-lg lg:shadow-none }
+    .db-sidebar-header { @apply flex items-center justify-between mb-8 }
+    .db-sidebar-header img { filter: brightness(0) invert(1); }
+    .db-sidebar-header .close-db-menu { @apply text-gray-400 bg-slate-800 hover:text-white hover:bg-slate-700 lg:hidden }
     .db-sidebar-nav { @apply mb-6 last:mb-0 }
-    .db-sidebar-nav-title { @apply uppercase text-xs mb-3 font-medium tracking-[2px] text-gray-400 }
-    .db-sidebar-nav-item.active .db-sidebar-nav-menu { @apply text-primary bg-primary/5 }
-    .db-sidebar-nav-item.router-link-active .db-sidebar-nav-menu { @apply text-primary bg-primary/5 }
-    .db-sidebar-nav-menu.router-link-active { @apply text-primary bg-primary/5 }
-    .db-sidebar-nav-menu { @apply capitalize w-full flex items-center justify-start text-left rounded-lg gap-3 py-2.5 px-3 transition hover:bg-gray-100 }
-    .db-sidebar-nav-menu i { @apply text-sm }
+    .db-sidebar-nav-title { @apply uppercase text-[10px] font-bold tracking-[1.5px] text-[#56597a] mb-2 mt-6 block }
+    .db-sidebar-nav-item.active > .db-sidebar-nav-menu { @apply text-white bg-[#1b1b28] font-medium border-l-[3px] border-solid border-primary rounded-l-none }
+    .db-sidebar-nav-item.router-link-active > .db-sidebar-nav-menu { @apply text-white bg-[#1b1b28] font-medium border-l-[3px] border-solid border-primary rounded-l-none }
+    .db-sidebar-nav-menu.router-link-active { @apply text-white bg-[#1b1b28] font-medium border-l-[3px] border-solid border-primary rounded-l-none }
+    .db-sidebar-nav-menu { @apply capitalize w-full flex items-center justify-start text-left rounded-lg gap-3 py-2.5 px-3 transition text-[#9899ac] hover:text-white hover:bg-[#1b1b28] }
+    .db-sidebar-nav-menu i { @apply text-sm text-[#494b74] transition-colors }
+    .db-sidebar-nav-menu:hover i { @apply text-white }
+    .db-sidebar-nav-menu.router-link-active i { @apply text-primary }
+    .db-sidebar-nav-item.active .db-sidebar-nav-menu i { @apply text-primary }
     .db-sidebar-nav-menu span { @apply text-base flex-auto ltr:text-left rtl:text-right }
     .db-sidebar-nav-dropdown { @apply h-0 overflow-hidden transition }
     .db-sidebar-nav-menu.downarrow { @apply after:content-['\f054'] after:font-awesome after:font-bold after:text-[10px] after:transition }
     .db-sidebar-nav-item.active .downarrow { @apply after:rotate-90 }
-    .db-sidebar-nav-dropdown-list { @apply mx-5 my-2 flex flex-col border-l-2 border-gray-100 }
-    .db-sidebar-nav-dropdown-menu { @apply pl-5 pr-2 py-2 rounded-lg text-sm leading-4 capitalize transition hover:bg-gray-100 hover:text-primary }
+    .db-sidebar-nav-dropdown-list { @apply mx-5 my-2 flex flex-col border-l border-slate-800 }
+    .db-sidebar-nav-dropdown-menu { @apply pl-5 pr-2 py-2 rounded-lg text-sm leading-4 capitalize transition text-[#9899ac] hover:text-white hover:bg-[#1b1b28] }
+    .db-sidebar-nav-dropdown-menu.router-link-active { @apply text-white bg-[#1b1b28] }
 
     .db-message-list .active { @apply !bg-primary/5 }
     .db-message-list .active h4 { @apply text-primary }
@@ -338,7 +344,7 @@
 
     .data-tab {@apply hidden}
     .data-tab.active{@apply !block}
-    .profile-tabBtn.active { @apply shadow-[0px_6px_10px_rgba(23,_114,_255,_0.24)] stroke-white text-white bg-primary }
+    .profile-tabBtn.active { @apply shadow-[0px_6px_10px_rgba(26,_183,_89,_0.24)] stroke-white text-white bg-primary }
     .profile-tabDiv { @apply hidden }
     .profile-tabDiv.active { @apply block }
 

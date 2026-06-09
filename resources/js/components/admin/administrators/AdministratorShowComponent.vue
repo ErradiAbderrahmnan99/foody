@@ -15,7 +15,7 @@
                     <form @submit.prevent="saveImage">
                         <div class="flex gap-3 md:gap-4">
                             <label for="photo"
-                                class="db-btn relative cursor-pointer h-[38px] shadow-[0px_6px_10px_rgba(23,_114,_255,_0.24)] bg-primary text-white">
+                                class="db-btn relative cursor-pointer h-[38px] shadow-[0px_6px_10px_rgba(26,_183,_89,_0.24)] bg-primary text-white">
                                 <i class="lab lab-upload-image"></i>
                                 <span class="hidden sm:inline-block">{{
                                     $t("button.upload_new_photo")

@@ -17,7 +17,7 @@
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity)) !important;
     --tw-bg-opacity: 1;
-    background-color: rgb(23 114 255/ var(--tw-bg-opacity)) !important;
+    background-color: rgb(26 183 89/ var(--tw-bg-opacity)) !important;
 }
 
 /* carousel end */
@@ -56,7 +56,7 @@
 }
 
 .vue-dropdown {
-    border: 1px solid #DCEAFF !important;
+    border: 1px solid #E0FFED !important;
     box-shadow: 0 0.25rem 1rem rgb(229 231 235 / 45%) !important;
 }
 
@@ -83,7 +83,7 @@
 }
 
 .vue-select[aria-expanded='true'] {
-    border-color: #DCEAFF !important;
+    border-color: #E0FFED !important;
 }
 
 .vue-dropdown-item.highlighted {
@@ -92,12 +92,12 @@
 
 .vue-dropdown-item.selected.highlighted {
     background-color: rgba(105, 108, 255, .08) !important;
-    color: rgb(23 114 255/ var(--tw-text-opacity)) !important;
+    color: rgb(26 183 89/ var(--tw-text-opacity)) !important;
 }
 
 .vue-dropdown-item.selected {
     background-color: rgba(105, 108, 255, .08) !important;
-    color: rgb(23 114 255/ var(--tw-text-opacity)) !important;
+    color: rgb(26 183 89/ var(--tw-text-opacity)) !important;
 }
 
 .vue-dropdown-item {
@@ -161,7 +161,7 @@
 }
 
 .font-fill-primary-toggle {
-    color: #1772FF;
+    color: #1AB759;
 }
 
 @media (max-width: 639px) {
@@ -176,7 +176,7 @@
 
 @media (max-width: 639px) {
     .font-fill-paragraph-toggle {
-        color: #1772FF !important;
+        color: #1AB759 !important;
     }
 }
 
@@ -189,7 +189,7 @@
 }
 
 .font-fill-primary {
-    color: #1772FF;
+    color: #1AB759;
 }
 
 .font-fill-paragraph {
@@ -213,7 +213,7 @@
 }
 
 .info-btn:hover .font-fill-paragraph {
-    color: #1772FF;
+    color: #1AB759;
 }
 
 .lab-font-bold {
@@ -427,7 +427,7 @@
 }
 
 .kitchen-board.db-tab-btn.active {
-    background-color: #1772FF !important;
+    background-color: #1AB759 !important;
     color: white !important;
     border-radius: 8px;
 }
