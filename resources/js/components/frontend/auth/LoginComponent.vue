@@ -1,87 +1,121 @@
 <template>
     <LoadingComponent :props="loading" />
-    <section class="pt-8 pb-16">
-        <div class="container max-w-[360px] py-6 p-4 mb-6 sm:px-6 shadow-xs rounded-2xl bg-white">
-            <h2 class="capitalize mb-6 text-center text-[22px] font-semibold leading-[34px] text-heading">
-                {{ $t('label.welcome_back') }}
-            </h2>
-            <div v-if="errors.validation"
-                class="bg-red-100 border border-red-400 text-red-700 px-3 py-3 mb-5 rounded relative flex items-start gap-2"
-                role="alert">
-                <span class="block sm:inline text-sm flex-auto">{{ errors.validation }}</span>
-                <button type="button" @click="close" class="leading-none">
-                    <i class="lab lab-close-circle-line"></i>
-                </button>
-            </div>
-            <form @submit.prevent="login">
-                <div class="mb-4">
-                    <label for="formEmail" class="text-sm capitalize mb-1 text-heading">{{ $t('label.email') }}</label>
-                    <input type="text" :class="errors.email ? 'invalid' : ''" v-model="form.email"
-                        class="w-full h-12 rounded-lg border px-4 border-[#D9DBE9]" id="formEmail">
-                    <small class="db-field-alert" v-if="errors.email">{{ errors.email[0] }}</small>
+    <section class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-[#0F172A]">
+        <div class="w-full max-w-md space-y-6">
+            <!-- Main Login Card -->
+            <div class="bg-[#1E293B] border border-[#334155] shadow-2xl rounded-3xl p-8 sm:p-10">
+                <div class="mb-8 text-center">
+                    <h2 class="text-2xl font-bold tracking-tight text-white capitalize">
+                        {{ $t('label.welcome_back') }}
+                    </h2>
+                    <p class="mt-2 text-sm text-[#94A3B8]">Please enter your details to sign in.</p>
                 </div>
-                <div class="mb-4">
-                    <label for="formPassword" class="text-sm capitalize mb-1 text-heading">{{
-                        $t('label.password')
-                        }}</label>
-                    <input autocomplete="off" type="password" :class="errors.password ? 'invalid' : ''"
-                        v-model="form.password" class="w-full h-12 rounded-lg border px-4 border-[#D9DBE9]"
-                        id="formPassword">
-                    <small class="db-field-alert" v-if="errors.password">{{ errors.password[0] }}</small>
-                </div>
-                <div class="flex items-center justify-between mb-6">
-                    <div class="db-field-checkbox p-0">
-                        <div class="custom-checkbox w-3 h-3">
-                            <input type="checkbox" id="checkbox2" class="custom-checkbox-field">
-                            <i
-                                class="fa-solid fa-check custom-checkbox-icon leading-[9px] text-[9px] rounded-[3px] border-[#6E7191]"></i>
-                        </div>
-                        <label for="checkbox2" class="db-field-label text-xs text-heading">
-                            {{ $t('label.remember_me') }}
-                        </label>
-                    </div>
-                    <router-link :to="{ name: 'auth.forgetPassword' }"
-                        class="capitalize text-xs font-medium transition text-primary">
-                        {{ $t('button.forget_password') }}
-                    </router-link>
-                </div>
-                <button type="submit"
-                    class="w-full h-12 text-center capitalize font-medium rounded-3xl mb-6 text-white bg-primary">
-                    {{ $t('button.login') }}
-                </button>
-            </form>
-        </div>
 
-        <div v-if="demo === 'true' || demo === 'TRUE' || demo === 'True' || demo === '1' || demo === 1"
-            class="container max-w-[360px] py-6 p-4 sm:px-6 shadow-xs rounded-2xl bg-white">
-            <h2 class="mb-6 text-center text-lg font-medium text-heading">{{ $t('message.for_quick_entree') }}</h2>
-            <nav class="grid grid-cols-2 gap-3">
-                <button @click.prevent="setupCredit('admin')"
-                    class="click-to-prop w-full h-10 leading-10 rounded-lg text-center text-sm capitalize text-white bg-orange-500"
-                    id="adminClick">
-                    {{ $t('label.admin') }}
-                </button>
-                <button @click.prevent="setupCredit('branchManager')"
-                    class="click-to-prop w-full h-10 leading-10 rounded-lg text-center text-sm capitalize text-white bg-sky-600"
-                    id="branchManagerClick">
-                    {{ $t('label.branch_manager') }}
-                </button>
-                <button @click.prevent="setupCredit('posOperator')"
-                    class="click-to-prop w-full h-10 leading-10 rounded-lg text-center text-sm capitalize text-white bg-purple-500"
-                    id="posOperatorClick">
-                    {{ $t('label.pos_operator') }}
-                </button>
-                <button @click.prevent="setupCredit('chef')"
-                    class="click-to-prop w-full h-10 leading-10 rounded-lg text-center text-sm capitalize text-white bg-green-500"
-                    id="chefClick">
-                    {{ $t('label.chef_kitchen') }}
-                </button>
-            </nav>
+                <!-- Error Alert -->
+                <div v-if="errors.validation"
+                    class="bg-red-500/10 border border-red-500/50 text-red-400 px-4 py-3 mb-6 rounded-xl flex items-start gap-3 transition-all"
+                    role="alert">
+                    <i class="lab lab-close-circle-line mt-0.5 text-lg"></i>
+                    <span class="block sm:inline text-sm flex-auto font-medium">{{ errors.validation }}</span>
+                    <button type="button" @click="close" class="text-red-400 hover:text-red-300 transition-colors">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <form @submit.prevent="login" class="space-y-5">
+                    <!-- Email Input -->
+                    <div>
+                        <label for="formEmail" class="block text-sm font-medium text-[#E2E8F0] mb-1.5 capitalize">
+                            {{ $t('label.email') }}
+                        </label>
+                        <input type="text" 
+                            :class="[
+                                'w-full h-12 rounded-xl bg-[#0F172A] border px-4 text-white placeholder-[#475569] focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200',
+                                errors.email ? 'border-red-500 focus:ring-red-500' : 'border-[#334155]'
+                            ]" 
+                            v-model="form.email" 
+                            id="formEmail"
+                            placeholder="name@example.com">
+                        <p class="mt-1.5 text-xs text-red-400 font-medium" v-if="errors.email">{{ errors.email[0] }}</p>
+                    </div>
+
+                    <!-- Password Input -->
+                    <div>
+                        <label for="formPassword" class="block text-sm font-medium text-[#E2E8F0] mb-1.5 capitalize">
+                            {{ $t('label.password') }}
+                        </label>
+                        <input autocomplete="off" type="password" 
+                            :class="[
+                                'w-full h-12 rounded-xl bg-[#0F172A] border px-4 text-white placeholder-[#475569] focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200',
+                                errors.password ? 'border-red-500 focus:ring-red-500' : 'border-[#334155]'
+                            ]"
+                            v-model="form.password" 
+                            id="formPassword"
+                            placeholder="••••••••">
+                        <p class="mt-1.5 text-xs text-red-400 font-medium" v-if="errors.password">{{ errors.password[0] }}</p>
+                    </div>
+
+                    <!-- Remember Me & Forgot Password -->
+                    <div class="flex items-center justify-between pt-2">
+                        <div class="flex items-center gap-2">
+                            <div class="relative flex items-center justify-center w-5 h-5">
+                                <input type="checkbox" id="checkbox2" 
+                                    class="peer appearance-none w-5 h-5 border border-[#475569] rounded bg-[#0F172A] checked:bg-primary checked:border-primary focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all cursor-pointer">
+                                <i class="fa-solid fa-check absolute text-white text-[10px] opacity-0 peer-checked:opacity-100 pointer-events-none transition-opacity"></i>
+                            </div>
+                            <label for="checkbox2" class="text-sm text-[#94A3B8] cursor-pointer hover:text-[#E2E8F0] transition-colors">
+                                {{ $t('label.remember_me') }}
+                            </label>
+                        </div>
+                        <router-link :to="{ name: 'auth.forgetPassword' }"
+                            class="text-sm font-medium text-primary hover:text-primary/80 transition-colors capitalize">
+                            {{ $t('button.forget_password') }}
+                        </router-link>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit"
+                        class="w-full h-12 mt-4 text-center capitalize font-semibold rounded-xl text-white bg-primary hover:opacity-90 active:scale-[0.98] transform transition-all duration-200 shadow-lg shadow-primary/25">
+                        {{ $t('button.login') }}
+                    </button>
+                </form>
+            </div>
+
+            <!-- Demo Quick Entry -->
+            <div v-if="demo === 'true' || demo === 'TRUE' || demo === 'True' || demo === '1' || demo === 1"
+                class="bg-[#1E293B] border border-[#334155] shadow-xl rounded-2xl p-6 transition-all">
+                <h2 class="mb-4 text-center text-sm font-semibold text-[#94A3B8] uppercase tracking-wider">
+                    {{ $t('message.for_quick_entree') }}
+                </h2>
+                <nav class="grid grid-cols-2 gap-3">
+                    <button @click.prevent="setupCredit('admin')"
+                        class="w-full h-11 rounded-xl text-sm font-medium capitalize text-[#E2E8F0] bg-[#0F172A] border border-[#334155] hover:border-orange-500/50 hover:bg-orange-500/10 transition-all">
+                        <span class="w-2 h-2 rounded-full bg-orange-500 inline-block mr-2"></span>
+                        {{ $t('label.admin') }}
+                    </button>
+                    <button @click.prevent="setupCredit('branchManager')"
+                        class="w-full h-11 rounded-xl text-sm font-medium capitalize text-[#E2E8F0] bg-[#0F172A] border border-[#334155] hover:border-sky-500/50 hover:bg-sky-500/10 transition-all">
+                        <span class="w-2 h-2 rounded-full bg-sky-500 inline-block mr-2"></span>
+                        {{ $t('label.branch_manager') }}
+                    </button>
+                    <button @click.prevent="setupCredit('posOperator')"
+                        class="w-full h-11 rounded-xl text-sm font-medium capitalize text-[#E2E8F0] bg-[#0F172A] border border-[#334155] hover:border-purple-500/50 hover:bg-purple-500/10 transition-all">
+                        <span class="w-2 h-2 rounded-full bg-purple-500 inline-block mr-2"></span>
+                        {{ $t('label.pos_operator') }}
+                    </button>
+                    <button @click.prevent="setupCredit('chef')"
+                        class="w-full h-11 rounded-xl text-sm font-medium capitalize text-[#E2E8F0] bg-[#0F172A] border border-[#334155] hover:border-green-500/50 hover:bg-green-500/10 transition-all">
+                        <span class="w-2 h-2 rounded-full bg-green-500 inline-block mr-2"></span>
+                        {{ $t('label.chef_kitchen') }}
+                    </button>
+                </nav>
+            </div>
         </div>
     </section>
 </template>
 
 <script>
+// ... (Keep your exact existing script setup here, no logic changes needed)
 import router from "../../../router";
 import LoadingComponent from "../components/LoadingComponent";
 import alertService from "../../../services/alertService";

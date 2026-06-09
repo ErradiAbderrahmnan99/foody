@@ -1,146 +1,166 @@
 <template>
     <LoadingComponent :props="loading" />
-    <section class="pt-8 pb-16 min-h-[800px]">
-        <div class="container max-w-[965px]">
+    <section class="py-10 min-h-screen bg-[#0F172A]">
+        <div class="container mx-auto px-4 sm:px-6 max-w-[1024px]">
+            <!-- Back Navigation -->
             <router-link :to="{ name: 'table.menu.table', params: { slug: this.$route.params.slug } }"
-                class="text-xs font-medium inline-flex mb-3 items-center gap-2 text-primary">
-                <i class="lab lab-undo lab-font-size-16"></i>
+                class="inline-flex items-center gap-2 mb-6 text-sm font-medium text-[#94A3B8] hover:text-primary transition-colors duration-200 group">
+                <i class="lab lab-undo text-lg transform group-hover:-translate-x-1 transition-transform"></i>
                 <span>{{ $t('label.back_to_home') }}</span>
             </router-link>
 
-            <div class="row">
-                <div class="col-12 md:col-7">
-                    <div class="mb-6 rounded-2xl shadow-xs bg-white">
-                        <h3 class="capitalize font-medium p-4 border-b border-gray-100">{{ $t('label.table') }}</h3>
-                        <p class="capitalize p-4 text-heading">{{ $t('label.inside') }} - {{ table.name }}</p>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                <!-- Left Column: Details & Payment -->
+                <div class="md:col-span-7 flex flex-col gap-6">
+                    
+                    <!-- Table Information Card -->
+                    <div class="rounded-2xl bg-[#1E293B] border border-[#334155] shadow-xl overflow-hidden">
+                        <h3 class="capitalize font-semibold p-5 border-b border-[#334155] text-white tracking-wide">
+                            {{ $t('label.table') }}
+                        </h3>
+                        <div class="p-5 flex items-center gap-4 bg-[#0F172A]/50">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                                <i class="fa-solid fa-utensils text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium text-[#94A3B8] capitalize mb-0.5">{{ $t('label.inside') }}</p>
+                                <p class="font-bold text-lg text-white">{{ table.name }}</p>
+                            </div>
+                        </div>
                     </div>
 
-
-                    <div class="mb-6 rounded-2xl shadow-xs bg-white">
-                        <h3 class="capitalize font-medium p-4 border-b border-gray-100">{{ $t('label.payment_method') }}
+                    <!-- Payment Method Card -->
+                    <div class="rounded-2xl bg-[#1E293B] border border-[#334155] shadow-xl overflow-hidden">
+                        <h3 class="capitalize font-semibold p-5 border-b border-[#334155] text-white tracking-wide">
+                            {{ $t('label.payment_method') }}
                         </h3>
-                        <ul class="p-4 flex flex-col gap-5">
-                            <li class="flex items-center gap-1.5">
-                                <div class="custom-radio">
-                                    <input type="radio" id="cash" v-model="paymentMethod" value="cashCard"
-                                        class="custom-radio-field">
-                                    <span class="custom-radio-span border-gray-400"></span>
-                                </div>
-                                <label for="cash" class="db-field-label text-heading">{{ $t('label.cash_card')
-                                    }}</label>
+                        <ul class="p-5 flex flex-col gap-3">
+                            <!-- Cash / Card Option -->
+                            <li>
+                                <label class="relative flex items-center p-4 cursor-pointer rounded-xl border border-[#334155] bg-[#0F172A] hover:border-[#475569] transition-all duration-200">
+                                    <input type="radio" v-model="paymentMethod" value="cashCard" class="peer sr-only">
+                                    <div class="w-5 h-5 rounded-full border-2 border-[#475569] peer-checked:border-primary peer-checked:bg-primary mr-4 flex items-center justify-center transition-all flex-shrink-0">
+                                        <div class="w-2 h-2 rounded-full bg-white opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <span class="text-[#E2E8F0] font-semibold text-base peer-checked:text-white transition-colors">{{ $t('label.cash_card') }}</span>
+                                    </div>
+                                    <!-- Optional Icon to right -->
+                                    <i class="fa-solid fa-money-bill-wave absolute right-5 text-[#475569] opacity-50 text-xl"></i>
+                                </label>
                             </li>
-                            <li class="flex items-center gap-1.5">
-                                <div class="custom-radio">
-                                    <input type="radio" id="digital" v-model="paymentMethod" value="digitalPayment"
-                                        class="custom-radio-field">
-                                    <span class="custom-radio-span border-gray-400"></span>
-                                </div>
-                                <label for="digital" class="db-field-label text-heading">{{ $t('label.digital_payment')
-                                    }}</label>
+                            <!-- Digital Payment Option -->
+                            <li>
+                                <label class="relative flex items-center p-4 cursor-pointer rounded-xl border border-[#334155] bg-[#0F172A] hover:border-[#475569] transition-all duration-200">
+                                    <input type="radio" v-model="paymentMethod" value="digitalPayment" class="peer sr-only">
+                                    <div class="w-5 h-5 rounded-full border-2 border-[#475569] peer-checked:border-primary peer-checked:bg-primary mr-4 flex items-center justify-center transition-all flex-shrink-0">
+                                        <div class="w-2 h-2 rounded-full bg-white opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <span class="text-[#E2E8F0] font-semibold text-base peer-checked:text-white transition-colors">{{ $t('label.digital_payment') }}</span>
+                                    </div>
+                                    <i class="fa-solid fa-mobile-screen-button absolute right-5 text-[#475569] opacity-50 text-xl"></i>
+                                </label>
                             </li>
                         </ul>
                     </div>
 
+                    <!-- Desktop Place Order Button -->
                     <button type="button"
-                        class="hidden md:block w-full rounded-3xl capitalize font-medium leading-6 py-3 text-white bg-primary"
+                        class="hidden md:block w-full h-14 mt-2 rounded-xl capitalize font-bold text-[15px] text-white bg-primary hover:opacity-90 active:scale-[0.98] transform transition-all duration-200 shadow-lg shadow-primary/25"
                         @click="orderSubmit">
                         {{ $t('button.place_order') }}
                     </button>
                 </div>
 
-                <div class="col-12 md:col-5">
-                    <div class="rounded-2xl shadow-xs bg-white">
-                        <div class="p-4 border-b">
-                            <h3 class="capitalize font-medium mb-3 text-center">
+                <!-- Right Column: Cart Summary (Sticky) -->
+                <div class="md:col-span-5 relative">
+                    <div class="rounded-2xl bg-[#1E293B] border border-[#334155] shadow-xl overflow-hidden sticky top-[100px] flex flex-col max-h-[calc(100vh-120px)]">
+                        
+                        <div class="p-5 border-b border-[#334155] bg-[#1E293B]">
+                            <h3 class="capitalize font-bold text-lg text-white flex items-center gap-2">
+                                <i class="fa-solid fa-receipt text-primary"></i>
                                 {{ $t('label.cart_summary') }}
                             </h3>
-                            <div class="pl-3">
-                                <div v-for="cart in carts"
-                                    class="mb-3 pb-3 border-b last:mb-0 last:pb-0 last:border-b-0 border-gray-2">
-                                    <div class="flex items-center gap-3 relative">
-                                        <h3
-                                            class="absolute top-5 ltr:-left-3 rtl:-right-3 text-sm w-[26px] h-[26px] leading-[26px] text-center rounded-full text-white bg-heading">
-                                            {{ cart.quantity }}</h3>
-                                        <img :src="cart.image" alt="thumbnail"
-                                            class="w-16 h-16 rounded-lg flex-shrink-0">
-                                        <div class="w-full">
-                                            <span class="text-sm font-medium capitalize transition text-heading">
+                        </div>
+                        
+                        <!-- Cart Items List -->
+                        <div class="p-5 overflow-y-auto thin-scrolling flex-1 bg-[#0F172A]/30">
+                            <div v-for="(cart, index) in carts" :key="index"
+                                class="mb-5 pb-5 border-b last:mb-0 last:pb-0 last:border-b-0 border-[#334155]/50">
+                                
+                                <div class="flex items-start gap-4 relative">
+                                    <!-- Quantity Badge -->
+                                    <span class="absolute -top-2 -left-2 flex items-center justify-center w-6 h-6 text-xs font-bold rounded-full text-white bg-primary shadow-md border-2 border-[#1E293B] z-10">
+                                        {{ cart.quantity }}
+                                    </span>
+                                    
+                                    <img :src="cart.image" alt="thumbnail"
+                                        class="w-16 h-16 rounded-xl object-cover border border-[#334155] bg-[#0F172A] flex-shrink-0">
+                                    
+                                    <div class="flex-1 min-w-0">
+                                        <div class="flex justify-between items-start gap-2 mb-1">
+                                            <h4 class="text-sm font-bold capitalize text-white truncate pr-2">
                                                 {{ cart.name }}
-                                            </span>
-                                            <p v-if="Object.keys(cart.item_variations.variations).length !== 0"
-                                                class="capitalize text-xs mb-1.5">
-                                                <span
-                                                    v-for="(variation, variationName, index) in cart.item_variations.names">
-                                                    {{ variationName }}: {{ variation }}
-                                                    <span
-                                                        v-if="index + 1 < Object.keys(cart.item_variations.names).length">,
-                                                        &nbsp;</span>
-                                                </span>
-                                            </p>
-                                            <h4 class="text-xs font-semibold">
-                                                {{
-                                                    currencyFormat(cart.total, setting.site_digit_after_decimal_point,
-                                                        setting.site_default_currency_symbol, setting.site_currency_position)
-                                                }}
+                                            </h4>
+                                            <h4 class="text-sm font-bold text-white whitespace-nowrap">
+                                                {{ currencyFormat(cart.total, setting.site_digit_after_decimal_point, setting.site_default_currency_symbol, setting.site_currency_position) }}
                                             </h4>
                                         </div>
+
+                                        <p v-if="Object.keys(cart.item_variations.variations).length !== 0"
+                                            class="capitalize text-xs text-[#94A3B8] mb-1.5 leading-snug">
+                                            <span v-for="(variation, variationName, idx) in cart.item_variations.names" :key="variationName">
+                                                {{ variationName }}: {{ variation }}
+                                                <span v-if="idx + 1 < Object.keys(cart.item_variations.names).length">, </span>
+                                            </span>
+                                        </p>
+
+                                        <ul v-if="cart.item_extras.extras.length > 0 || cart.instruction !== ''"
+                                            class="flex flex-col gap-1 mt-2 p-2 rounded-lg bg-[#0F172A] border border-[#334155]">
+                                            <li v-if="cart.item_extras.extras.length > 0" class="flex items-start gap-2">
+                                                <span class="capitalize text-[11px] font-medium text-[#94A3B8] whitespace-nowrap mt-0.5">{{ $t('label.extras') }}:</span>
+                                                <p class="text-[11px] text-[#E2E8F0] leading-relaxed">
+                                                    <span v-for="(extra, idx) in cart.item_extras.names" :key="idx">
+                                                        {{ extra }}<span v-if="idx + 1 < cart.item_extras.names.length">, </span>
+                                                    </span>
+                                                </p>
+                                            </li>
+                                            <li v-if="cart.instruction !== ''" class="flex items-start gap-2 mt-1 pt-1 border-t border-[#334155]/50">
+                                                <span class="capitalize text-[11px] font-medium text-[#94A3B8] whitespace-nowrap mt-0.5">{{ $t('label.instruction') }}:</span>
+                                                <p class="text-[11px] text-yellow-400/90 italic leading-relaxed">{{ cart.instruction }}</p>
+                                            </li>
+                                        </ul>
                                     </div>
-                                    <ul v-if="cart.item_extras.extras.length > 0 || cart.instruction !== ''"
-                                        class="flex flex-col gap-1.5 mt-2">
-                                        <li v-if="cart.item_extras.extras.length > 0" class="flex gap-1">
-                                            <h3 class="capitalize text-xs w-fit whitespace-nowrap">
-                                                {{ $t('label.extras') }}:
-                                            </h3>
-                                            <p class="text-xs">
-                                                <span v-for="(extra, index) in cart.item_extras.names">
-                                                    {{ extra }}
-                                                    <span v-if="index + 1 < cart.item_extras.names.length">,
-                                                        &nbsp;</span>
-                                                </span>
-                                            </p>
-                                        </li>
-                                        <li v-if="cart.instruction !== ''" class="flex gap-1">
-                                            <h3 class="capitalize text-xs w-fit whitespace-nowrap">
-                                                {{ $t('label.instruction') }}:
-                                            </h3>
-                                            <p class="text-xs">{{ cart.instruction }}</p>
-                                        </li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="p-4">
-                            <div class="rounded-xl mb-6 border border-[#EFF0F6]">
-                                <ul class="flex flex-col gap-2 p-3 border-b border-dashed border-[#EFF0F6]">
-                                    <li class="flex items-center justify-between text-heading">
-                                        <span class="text-sm leading-6 capitalize">
-                                            {{ $t('label.subtotal') }}
-                                        </span>
-                                        <span class="text-sm leading-6 capitalize">
-                                            {{
-                                                currencyFormat(subtotal, setting.site_digit_after_decimal_point,
-                                                    setting.site_default_currency_symbol, setting.site_currency_position)
-                                            }}
-                                        </span>
-                                    </li>
-                                </ul>
-                                <div class="flex items-center justify-between p-3">
-                                    <h4 class="text-sm leading-6 font-semibold capitalize">
-                                        {{ $t('label.total') }}
-                                    </h4>
-                                    <h5 class="text-sm leading-6 font-semibold capitalize">
-                                        {{
-                                            currencyFormat(subtotal, setting.site_digit_after_decimal_point,
-                                                setting.site_default_currency_symbol, setting.site_currency_position)
-                                        }}
-                                    </h5>
+                        
+                        <!-- Totals & Mobile Button -->
+                        <div class="bg-[#1E293B] border-t border-[#334155]">
+                            <div class="p-5 pb-4 border-b border-dashed border-[#334155]">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm font-medium text-[#94A3B8] capitalize">{{ $t('label.subtotal') }}</span>
+                                    <span class="text-sm font-semibold text-white">
+                                        {{ currencyFormat(subtotal, setting.site_digit_after_decimal_point, setting.site_default_currency_symbol, setting.site_currency_position) }}
+                                    </span>
                                 </div>
                             </div>
-                            <button type="button"
-                                class="block md:hidden w-full rounded-3xl capitalize font-medium leading-6 py-3 text-white bg-primary"
-                                @click="orderSubmit">
-                                {{ $t('button.place_order') }}
-                            </button>
+                            
+                            <div class="p-5 pt-4">
+                                <div class="flex items-center justify-between mb-5">
+                                    <h4 class="text-base font-bold text-white capitalize">{{ $t('label.total') }}</h4>
+                                    <h5 class="text-xl font-bold text-primary">
+                                        {{ currencyFormat(subtotal, setting.site_digit_after_decimal_point, setting.site_default_currency_symbol, setting.site_currency_position) }}
+                                    </h5>
+                                </div>
+                                
+                                <button type="button"
+                                    class="block md:hidden w-full h-14 rounded-xl capitalize font-bold text-[15px] text-white bg-primary hover:opacity-90 active:scale-[0.98] transform transition-all duration-200 shadow-lg shadow-primary/25"
+                                    @click="orderSubmit">
+                                    {{ $t('button.place_order') }}
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -149,9 +169,8 @@
     </section>
 </template>
 
-
 <script>
-
+// ... existing script exact match below
 import LoadingComponent from "../../table/components/LoadingComponent.vue";
 import appService from "../../../services/appService";
 import sourceEnum from "../../../enums/modules/sourceEnum";

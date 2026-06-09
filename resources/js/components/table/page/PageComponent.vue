@@ -1,6 +1,6 @@
 <template>
-    <section class="pt-8 pb-16">
-        <div class="container max-w-3xl">
+    <section class="pt-8 pb-16 min-h-screen bg-[#0F172A] text-white">
+        <div class="container max-w-3xl mx-auto px-4 sm:px-6">
             <div class="mb-6">
                 <h2 class="text-[26px] leading-10 font-semibold capitalize mb-2">
                     {{ page.title }}

@@ -1,7 +1,7 @@
 <template>
     <LoadingComponent :props="loading" />
-    <section class="mb-16 mt-8">
-        <div class="container">
+    <section class="pb-16 pt-8 min-h-screen bg-[#0F172A] text-white">
+        <div class="container mx-auto px-4 sm:px-6 max-w-[1024px]">
             <div class="flex gap-4 flex-col sm:flex-row items-center justify-between mb-6">
                 <h2 class="capitalize text-[26px] leading-[40px] font-semibold text-center sm:text-left text-primary">
                     {{ props.search.name }}
@@ -9,21 +9,23 @@
                 <div class="flex items-center gap-3" v-if="props.search.name">
                     <button type="button" class="lab lab-row-vertical lab-font-size-20 text-xl"
                         v-on:click="itemProps.design = itemDesignEnum.LIST"
-                        :class="itemProps.design === itemDesignEnum.LIST ? 'text-primary' : 'text-[#A0A3BD]'"></button>
+                        :class="itemProps.design === itemDesignEnum.LIST ? 'text-primary' : 'text-[#94A3B8]'"></button>
                     <button type="button" class="lab lab-element-3 lab-font-size-20 text-xl"
                         v-on:click="itemProps.design = itemDesignEnum.GRID"
-                        :class="itemProps.design === itemDesignEnum.GRID ? 'text-primary' : 'text-[#A0A3BD]'"></button>
+                        :class="itemProps.design === itemDesignEnum.GRID ? 'text-primary' : 'text-[#94A3B8]'"></button>
                 </div>
             </div>
             <ItemComponent :items="items" :type="itemProps.type" :design="itemProps.design" v-if="items.length > 0" />
 
-            <div class="mt-12" v-else>
-                <div class="max-w-[250px] mx-auto">
-                    <img class="w-full mb-8" :src="setting.item_not_found" alt="image_order_not_found">
+            <div class="mt-20 flex flex-col items-center justify-center" v-else>
+                <div class="max-w-[200px] mx-auto opacity-70 mb-8">
+                    <img class="w-full drop-shadow-2xl" :src="setting.image_order_not_found" alt="image_order_not_found">
                 </div>
-                <span class="w-full mb-4 text-center text-black">{{ $t('message.no_items_found') }}</span>
+                <span class="text-base font-medium text-[#94A3B8] bg-[#1E293B] px-6 py-3 rounded-2xl border border-[#334155] mb-6 block text-center">
+                    {{ $t('message.no_items_found') }}
+                </span>
                 <router-link :to="{ name: 'table.menu.table', params: { slug: this.$route.params.slug } }"
-                    class="block w-full mx-auto max-w-[250px] py-3 rounded-3xl capitalize text-base font-medium leading-6 text-center bg-primary text-white">
+                    class="block w-full mx-auto max-w-[250px] py-3.5 px-4 rounded-xl capitalize font-bold text-[15px] text-center bg-primary text-white hover:opacity-90 active:scale-[0.98] transform transition-all duration-200 shadow-lg shadow-primary/25">
                     {{ $t('button.go_home') }}
                 </router-link>
             </div>

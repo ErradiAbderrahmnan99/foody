@@ -66,10 +66,10 @@
         <ul
             class="flex items-center justify-between px-2 mx-2 mb-[70px] relative before:absolute before:top-0 before:left-0 before:w-full before:h-1 before:bg-primary">
             <li v-for="(delivery, index) in enums.deliveryArray" :key="index"
-                class="db-order-status relative before:absolute before:-top-2 before:left-1/2 before:-translate-x-1/2 before:w-5 before:h-5 before:rounded-full before:border-[3px] before:border-primary before:bg-white"
+                class="db-order-status relative before:absolute before:-top-2 before:left-1/2 before:-translate-x-1/2 before:w-5 before:h-5 before:rounded-full before:border-[3px] before:border-primary before:bg-[#1E293B]"
                 :class="parseInt(props.status) >= parseInt(index) ? 'check' : ''">
                 <span
-                    class="absolute -bottom-12 left-1/2 -translate-x-1/2 text-[10px] leading-4 text-center text-heading">
+                    class="absolute -bottom-12 left-1/2 -translate-x-1/2 text-[10px] leading-4 text-center text-[#94A3B8]">
                     {{ $t('menu.order') }} {{ delivery }}
                 </span>
             </li>

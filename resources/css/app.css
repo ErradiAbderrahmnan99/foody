@@ -488,7 +488,92 @@
     .db-pos-cartDiv { @apply translate-x-full md:translate-x-0 transition }
     .db-pos-cartDiv.active { @apply translate-x-0 }
 
-    .pos-group .active { @apply bg-primary-light border-primary }
+    /* POS Dark Select Styles (for vue-select in dark mode) */
+    .pos-dark-select {
+        background-color: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 0.75rem !important; /* rounded-xl */
+        color: #fff !important;
+    }
+
+    /* Selected text/header styling */
+    .pos-dark-select .vue-select-header {
+        color: #fff !important;
+    }
+
+    /* The input inside the select header */
+    .pos-dark-select .vue-input input {
+        color: #fff !important;
+    }
+
+    .pos-dark-select .vue-input input::placeholder {
+        color: #6b7280 !important; /* text-gray-500 */
+    }
+
+    /* Dropdown container */
+    .pos-dark-select .vue-dropdown {
+        background-color: #1a1d2e !important; /* Premium dark background */
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5) !important;
+        border-radius: 0.75rem !important;
+        z-index: 100000 !important;
+    }
+
+    /* Dropdown search container & input */
+    .pos-dark-select .vue-dropdown .vue-input {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+        padding: 8px 12px !important;
+    }
+
+    .pos-dark-select .vue-dropdown .vue-input input {
+        background-color: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border-radius: 0.5rem !important;
+        padding: 6px 12px !important;
+        color: #fff !important;
+        width: 100% !important;
+    }
+
+    /* Dropdown options list items */
+    .pos-dark-select .vue-dropdown-item {
+        background-color: transparent !important;
+        color: rgba(255, 255, 255, 0.7) !important; /* White with opacity for nice contrast */
+        font-size: 13px !important;
+        padding: 8px 16px !important;
+        transition: all 0.2s ease-in-out;
+    }
+
+    /* Highlighted / Hovered item */
+    .pos-dark-select .vue-dropdown-item.highlighted {
+        background-color: rgba(255, 255, 255, 0.08) !important;
+        color: #fff !important;
+    }
+
+    /* Selected item styling */
+    .pos-dark-select .vue-dropdown-item.selected {
+        background-color: rgba(14, 207, 173, 0.15) !important; /* theme accent color background */
+        color: #0ECFAD !important; /* theme green accent color */
+        font-weight: 700 !important;
+    }
+
+    /* Selected & Highlighted item styling */
+    .pos-dark-select .vue-dropdown-item.selected.highlighted {
+        background-color: rgba(14, 207, 173, 0.2) !important;
+        color: #0ECFAD !important;
+    }
+
+    .pos-group .active { @apply bg-[#E0FFED] border-[#1AB759] text-[#1AB759] shadow-md -translate-y-0.5 !important }
+    .db-field-radio.active {
+        background-color: #E0FFED !important;
+        border-color: #1AB759 !important;
+        color: #1AB759 !important;
+    }
+    .db-field-radio.active .custom-radio-span {
+        border-color: #1AB759 !important;
+    }
+    .db-field-radio.active .custom-radio-span::after {
+        background-color: #1AB759 !important;
+    }
 
     /* FOOTER */
     .footer-part { @apply bg-primary }

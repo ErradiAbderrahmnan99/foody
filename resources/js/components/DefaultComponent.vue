@@ -16,10 +16,12 @@
             </div>
         </div>
 
-        <div v-if="theme === 'table'">
-            <TableNavbarComponent />
-            <TableCartComponent />
-            <router-view></router-view>
+        <div v-if="theme === 'table'" class="bg-[#0F172A] min-h-screen flex flex-col justify-between">
+            <div>
+                <TableNavbarComponent />
+                <TableCartComponent />
+                <router-view></router-view>
+            </div>
             <TableFooterComponent />
         </div>
     </div>
