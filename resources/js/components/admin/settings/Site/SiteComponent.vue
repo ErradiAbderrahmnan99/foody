@@ -79,20 +79,7 @@
                         }}</small>
                     </div>
 
-                    <div class="form-col-12 sm:form-col-6">
-                        <label for="site_default_sms_gateway" class="db-field-title">{{
-                            $t("label.default_sms_gateway")
-                        }}</label>
 
-                        <vue-select class="db-field-control f-b-custom-select" id="site_default_sms_gateway"
-                            v-bind:class="errors.site_default_sms_gateway ? 'invalid' : ''"
-                            v-model="form.site_default_sms_gateway" :options="smsGateways" label-by="name" value-by="id"
-                            :closeOnSelect="true" :searchable="true" :clearOnClose="true" placeholder="--"
-                            search-placeholder="--" />
-                        <small class="db-field-alert" v-if="errors.site_default_sms_gateway">{{
-                            errors.site_default_sms_gateway[0]
-                        }}</small>
-                    </div>
 
                     <div class="form-col-12 sm:form-col-6">
                         <label for="site_copyright" class="db-field-title required">
@@ -383,7 +370,7 @@ export default {
                 site_google_map_key: null,
                 site_copyright: null,
                 site_online_payment_gateway: null,
-                site_default_sms_gateway: null,
+
                 site_food_preparation_time: null,
             },
             enums: {
@@ -408,9 +395,7 @@ export default {
         languages: function () {
             return this.$store.getters['language/lists'];
         },
-        smsGateways: function () {
-            return this.$store.getters["smsGateway/lists"];
-        },
+
     },
     mounted() {
         this.loadInfo();
@@ -422,9 +407,7 @@ export default {
         loadInfo: async function () {
             try {
                 this.loading.isActive = true;
-                await this.$store.dispatch("smsGateway/lists", {
-                    status: statusEnum.ACTIVE
-                });
+
                 this.$store.dispatch('timezone/lists');
                 await this.$store.dispatch('branch/lists', {
                     order_column: 'id',
@@ -468,7 +451,7 @@ export default {
                     site_google_map_key: res.data.data.site_google_map_key,
                     site_copyright: res.data.data.site_copyright,
                     site_online_payment_gateway: res.data.data.site_online_payment_gateway,
-                    site_default_sms_gateway: res.data.data.site_default_sms_gateway === 0 ? null : res.data.data.site_default_sms_gateway,
+
                     site_food_preparation_time: res.data.data.site_food_preparation_time,
                 }
                 this.loading.isActive = false;
