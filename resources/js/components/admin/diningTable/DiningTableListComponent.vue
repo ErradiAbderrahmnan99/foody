@@ -65,31 +65,47 @@
                 </form>
             </div>
 
-            <div class="db-table-responsive">
-                <table class="db-table stripe" id="print">
-                    <thead class="db-table-head">
+            <div class="db-table-responsive rounded-xl border border-gray-100 bg-white overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.03)]">
+                <table class="db-table custom-tables-table" id="print">
+                    <thead class="db-table-head bg-slate-50/75 border-b border-gray-100 text-[#475569]">
                         <tr class="db-table-head-tr">
-                            <th class="db-table-head-th">{{ $t('label.name') }}</th>
-                            <th class="db-table-head-th">{{ $t('label.size') }}</th>
-                            <th class="db-table-head-th">{{ $t('label.status') }}</th>
-                            <th class="db-table-head-th hidden-print"
+                            <th class="db-table-head-th px-6 py-4 text-xs font-bold uppercase tracking-wider text-left">{{ $t('label.name') }}</th>
+                            <th class="db-table-head-th px-6 py-4 text-xs font-bold uppercase tracking-wider text-left">{{ $t('label.size') }}</th>
+                            <th class="db-table-head-th px-6 py-4 text-xs font-bold uppercase tracking-wider text-left">{{ $t('label.status') }}</th>
+                            <th class="db-table-head-th px-6 py-4 text-xs font-bold uppercase tracking-wider text-left hidden-print"
                                 v-if="permissionChecker('dining_tables_show') || permissionChecker('dining_tables_edit') || permissionChecker('dining_tables_delete')">
                                 {{ $t('label.action') }}
                             </th>
                         </tr>
                     </thead>
-                    <tbody class="db-table-body" v-if="diningTables.length > 0">
-                        <tr class="db-table-body-tr" v-for="diningTable in diningTables" :key="diningTable">
-                            <td class="db-table-body-td">{{ diningTable.name }}</td>
-                            <td class="db-table-body-td">{{ diningTable.size }}</td>
-                            <td class="db-table-body-td">
-                                <span :class="statusClass(diningTable.status)">
+                    <tbody class="db-table-body divide-y divide-gray-50 bg-white" v-if="diningTables.length > 0">
+                        <tr class="db-table-body-tr hover:bg-slate-50/50 transition-colors duration-200" v-for="diningTable in diningTables" :key="diningTable.id">
+                            <td class="db-table-body-td px-6 py-4.5 whitespace-nowrap">
+                                <div class="flex items-center gap-4.5">
+                                    <div class="w-11 h-11 rounded-xl bg-indigo-50 border border-indigo-100/60 flex items-center justify-center text-indigo-600 flex-shrink-0 shadow-sm transition-transform duration-300 hover:scale-105">
+                                        <i class="lab lab-dining-table text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <span class="font-bold text-[#1e293b] text-[15px] block leading-tight">{{ diningTable.name }}</span>
+                                        <span class="text-[10px] text-[#94a3b8] font-semibold uppercase tracking-wider block mt-1">ID: {{ diningTable.id }}</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="db-table-body-td px-6 py-4.5 whitespace-nowrap">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-200/50">
+                                    {{ diningTable.size }} {{ $t('label.seats') || 'Seats' }}
+                                </span>
+                            </td>
+                            <td class="db-table-body-td px-6 py-4.5 whitespace-nowrap">
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold transition-all duration-200"
+                                      :class="diningTable.status === enums.statusEnum.ACTIVE ? 'bg-emerald-50 text-emerald-700 border border-emerald-100 shadow-[0_2px_8px_-3px_rgba(16,185,129,0.08)]' : 'bg-rose-50 text-rose-700 border border-rose-100 shadow-[0_2px_8px_-3px_rgba(244,63,94,0.08)]'">
+                                    <span class="w-1.5 h-1.5 rounded-full" :class="diningTable.status === enums.statusEnum.ACTIVE ? 'bg-emerald-500' : 'bg-rose-500'"></span>
                                     {{ enums.statusEnumArray[diningTable.status] }}
                                 </span>
                             </td>
-                            <td class="db-table-body-td hidden-print"
+                            <td class="db-table-body-td px-6 py-4.5 whitespace-nowrap hidden-print"
                                 v-if="permissionChecker('dining_tables_show') || permissionChecker('dining_tables_edit') || permissionChecker('dining_tables_delete')">
-                                <div class="flex justify-start items-center sm:items-start sm:justify-start gap-1.5">
+                                <div class="flex items-center gap-2">
                                     <SmIconQrCodeComponent :link="diningTable.qr" />
                                     <SmIconViewComponent :link="'admin.diningTable.show'" :id="diningTable.id"
                                         v-if="permissionChecker('dining_tables_show')" />
@@ -312,6 +328,109 @@ export default {
 </script>
 
 <style scoped>
+/* Custom dining tables table specific styles */
+.custom-tables-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.custom-tables-table :deep(.db-table-body-td) {
+    padding: 1.125rem 1.5rem;
+    vertical-align: middle;
+}
+
+.custom-tables-table :deep(.db-table-head-th) {
+    padding: 1rem 1.5rem;
+    vertical-align: middle;
+}
+
+/* Action button premium styling override */
+:deep(.db-table-action) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+:deep(.db-table-action i) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+    border-radius: 8px;
+    margin: 0;
+    padding: 0;
+    transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+}
+
+:deep(.db-table-action.qr-code i) {
+    color: #f59e0b;
+    background-color: #fef3c7;
+    border-color: #fde68a;
+}
+
+:deep(.db-table-action.qr-code:hover i) {
+    color: #ffffff;
+    background-color: #f59e0b;
+    border-color: #f59e0b;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.18);
+}
+
+:deep(.db-table-action.view i) {
+    color: #4f46e5;
+    background-color: #f5f3ff;
+    border-color: #e0e7ff;
+}
+
+:deep(.db-table-action.view:hover i) {
+    color: #ffffff;
+    background-color: #4f46e5;
+    border-color: #4f46e5;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.18);
+}
+
+:deep(.db-table-action.edit i) {
+    color: #059669;
+    background-color: #ecfdf5;
+    border-color: #d1fae5;
+}
+
+:deep(.db-table-action.edit:hover i) {
+    color: #ffffff;
+    background-color: #059669;
+    border-color: #059669;
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.18);
+}
+
+:deep(.db-table-action.delete i) {
+    color: #dc2626;
+    background-color: #fef2f2;
+    border-color: #fee2e2;
+}
+
+:deep(.db-table-action.delete:hover i) {
+    color: #ffffff;
+    background-color: #dc2626;
+    border-color: #dc2626;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.18);
+}
+
+/* Tooltip custom styling */
+:deep(.db-tooltip) {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-radius: 6px;
+    padding: 4px 8px;
+    background-color: #1e293b;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease;
+}
+
 @media print {
     .hidden-print {
         display: none !important;

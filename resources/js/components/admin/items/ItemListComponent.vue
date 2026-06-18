@@ -118,43 +118,66 @@
                 </form>
             </div>
 
-            <div class="db-table-responsive">
-                <table class="db-table stripe" id="print" :dir="direction">
-                    <thead class="db-table-head">
+            <div class="db-table-responsive rounded-xl border border-gray-100 bg-white overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.03)]">
+                <table class="db-table custom-items-table" id="print" :dir="direction">
+                    <thead class="db-table-head bg-slate-50/75 border-b border-gray-100 text-[#475569]">
                         <tr class="db-table-head-tr">
-                            <th class="db-table-head-th">
+                            <th class="db-table-head-th px-6 py-4 text-xs font-bold uppercase tracking-wider text-left">
                                 {{ $t('label.name') }}
                             </th>
-                            <th class="db-table-head-th">
+                            <th class="db-table-head-th px-6 py-4 text-xs font-bold uppercase tracking-wider text-left">
                                 {{ $t('label.category') }}
                             </th>
-                            <th class="db-table-head-th">
+                            <th class="db-table-head-th px-6 py-4 text-xs font-bold uppercase tracking-wider text-left">
                                 {{ $t('label.price') }}
                             </th>
-                            <th class="db-table-head-th">
+                            <th class="db-table-head-th px-6 py-4 text-xs font-bold uppercase tracking-wider text-left">
                                 {{ $t('label.status') }}
                             </th>
-                            <th class="db-table-head-th hidden-print"
+                            <th class="db-table-head-th px-6 py-4 text-xs font-bold uppercase tracking-wider text-left hidden-print"
                                 v-if="permissionChecker('items_show') || permissionChecker('items_edit') || permissionChecker('items_delete')">
                                 {{ $t('label.action') }}
                             </th>
                         </tr>
                     </thead>
-                    <tbody class="db-table-body" v-if="items.length > 0">
-                        <tr class="db-table-body-tr" v-for="item in items" :key="item">
-                            <td class="db-table-body-td">
-                                {{ textShortener(item.name, 40) }}
+                    <tbody class="db-table-body divide-y divide-gray-50 bg-white" v-if="items.length > 0">
+                        <tr class="db-table-body-tr hover:bg-slate-50/50 transition-colors duration-200" v-for="item in items" :key="item.id">
+                            <td class="db-table-body-td px-6 py-4.5 whitespace-nowrap">
+                                <div class="flex items-center gap-4.5">
+                                    <div class="relative w-11 h-11 rounded-xl overflow-hidden bg-slate-50 flex-shrink-0 border border-slate-100 shadow-sm transition-all duration-300 hover:scale-105">
+                                        <img :src="item.thumb" class="w-full h-full object-cover" :alt="item.name" />
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-[#1e293b] text-[15px] leading-snug">
+                                            {{ textShortener(item.name, 40) }}
+                                        </div>
+                                        <div class="text-[11px] text-[#94a3b8] mt-1 flex items-center gap-2 font-medium">
+                                            <span class="inline-block px-1.5 py-0.5 rounded bg-slate-100 text-slate-500 font-bold uppercase tracking-wider scale-[0.9] origin-left">ID: {{ item.id }}</span>
+                                            <span v-if="item.item_type !== undefined" class="inline-block px-1.5 py-0.5 rounded text-[10px]" :class="item.item_type === enums.itemTypeEnum.VEG ? 'bg-emerald-50 text-emerald-600 border border-emerald-100' : 'bg-rose-50 text-rose-600 border border-rose-100'">
+                                                {{ item.item_type === enums.itemTypeEnum.VEG ? 'Veg' : 'Non-Veg' }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
                             </td>
-                            <td class="db-table-body-td">{{ item.category_name }}</td>
-                            <td class="db-table-body-td">{{ item.flat_price }}</td>
-                            <td class="db-table-body-td">
-                                <span :class="statusClass(item.status)">
+                            <td class="db-table-body-td px-6 py-4.5 whitespace-nowrap">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-100/50">
+                                    {{ item.category_name }}
+                                </span>
+                            </td>
+                            <td class="db-table-body-td px-6 py-4.5 whitespace-nowrap font-bold text-slate-800 text-[15px]">
+                                {{ item.flat_price }}
+                            </td>
+                            <td class="db-table-body-td px-6 py-4.5 whitespace-nowrap">
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold transition-all duration-200"
+                                      :class="item.status === enums.statusEnum.ACTIVE ? 'bg-emerald-50 text-emerald-700 border border-emerald-100 shadow-[0_2px_8px_-3px_rgba(16,185,129,0.08)]' : 'bg-rose-50 text-rose-700 border border-rose-100 shadow-[0_2px_8px_-3px_rgba(244,63,94,0.08)]'">
+                                    <span class="w-1.5 h-1.5 rounded-full" :class="item.status === enums.statusEnum.ACTIVE ? 'bg-emerald-500' : 'bg-rose-500'"></span>
                                     {{ enums.statusEnumArray[item.status] }}
                                 </span>
                             </td>
-                            <td class="db-table-body-td hidden-print"
+                            <td class="db-table-body-td px-6 py-4.5 whitespace-nowrap hidden-print"
                                 v-if="permissionChecker('items_show') || permissionChecker('items_edit') || permissionChecker('items_delete')">
-                                <div class="flex justify-start items-center sm:items-start sm:justify-start gap-1.5">
+                                <div class="flex items-center gap-2">
                                     <SmIconViewComponent :link="'admin.item.show'" :id="item.id"
                                         v-if="permissionChecker('items_show')" />
                                     <SmIconSidebarModalEditComponent @click="edit(item)"
@@ -457,6 +480,96 @@ export default {
 </script>
 
 <style scoped>
+/* Custom items table specific styles */
+.custom-items-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.custom-items-table :deep(.db-table-body-td) {
+    padding: 1.125rem 1.5rem;
+    vertical-align: middle;
+}
+
+.custom-items-table :deep(.db-table-head-th) {
+    padding: 1rem 1.5rem;
+    vertical-align: middle;
+}
+
+/* Action button premium styling override */
+:deep(.db-table-action) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+:deep(.db-table-action i) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+    border-radius: 8px;
+    margin: 0;
+    padding: 0;
+    transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+}
+
+:deep(.db-table-action.view i) {
+    color: #4f46e5;
+    background-color: #f5f3ff;
+    border-color: #e0e7ff;
+}
+
+:deep(.db-table-action.view:hover i) {
+    color: #ffffff;
+    background-color: #4f46e5;
+    border-color: #4f46e5;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.18);
+}
+
+:deep(.db-table-action.edit i) {
+    color: #059669;
+    background-color: #ecfdf5;
+    border-color: #d1fae5;
+}
+
+:deep(.db-table-action.edit:hover i) {
+    color: #ffffff;
+    background-color: #059669;
+    border-color: #059669;
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.18);
+}
+
+:deep(.db-table-action.delete i) {
+    color: #dc2626;
+    background-color: #fef2f2;
+    border-color: #fee2e2;
+}
+
+:deep(.db-table-action.delete:hover i) {
+    color: #ffffff;
+    background-color: #dc2626;
+    border-color: #dc2626;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.18);
+}
+
+/* Tooltip custom styling */
+:deep(.db-tooltip) {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-radius: 6px;
+    padding: 4px 8px;
+    background-color: #1e293b;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease;
+}
+
 @media print {
     .hidden-print {
         display: none !important;
