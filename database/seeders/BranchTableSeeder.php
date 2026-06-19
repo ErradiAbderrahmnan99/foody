@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Dipokhalder\EnvEditor\EnvEditor;
 use App\Enums\Status;
 use App\Models\Branch;
 use Illuminate\Database\Seeder;
@@ -28,10 +27,7 @@ class BranchTableSeeder extends Seeder
             'address'   => 'House : 25, Road No: 2, Block A, Mirpur-1, Dhaka 1216',
             'status'    => Status::ACTIVE,
         ]);
-
-        $envService = new EnvEditor();
-        if ($envService->getValue('DEMO')) {
-            Branch::create([
+Branch::create([
                 'name'      => 'Gulshan-1',
                 'email'     => 'gulshan@inilabs.xyz',
                 'phone'     => '+1243535366',
@@ -43,6 +39,6 @@ class BranchTableSeeder extends Seeder
                 'address'   => '1st floor, Adam Building, House: 41 Road: 52, Dhaka 1212',
                 'status'    => Status::ACTIVE,
             ]);
-        }
+        
     }
 }

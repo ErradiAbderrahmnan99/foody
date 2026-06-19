@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Dipokhalder\EnvEditor\EnvEditor;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\ItemCategory;
@@ -33,9 +32,7 @@ class ItemCategoryTableSeeder extends Seeder
 
     public function run()
     {
-        $envService = new EnvEditor();
-        if ($envService->getValue('DEMO')) {
-            foreach ($this->categories as $category) {
+foreach ($this->categories as $category) {
                 $itemCategory = ItemCategory::create([
                     'name'        => $category,
                     'slug'        => Str::slug($category),
@@ -49,6 +46,6 @@ class ItemCategoryTableSeeder extends Seeder
                     )->preservingOriginal()->toMediaCollection('item-category');
                 }
             }
-        }
+        
     }
 }

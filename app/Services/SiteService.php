@@ -55,11 +55,9 @@ class SiteService
                 'TIME_FORMAT'            => $request->site_time_format
             ]);
 
-            if (!$this->envService->getValue('DEMO')) {
-                $this->envService->addData([
-                    'MIX_GOOGLE_MAP_KEY'     => $request->site_google_map_key,
-                ]);
-            }
+            $this->envService->addData([
+                'MIX_GOOGLE_MAP_KEY'     => $request->site_google_map_key,
+            ]);
 
             Artisan::call('optimize:clear');
             return $this->list();

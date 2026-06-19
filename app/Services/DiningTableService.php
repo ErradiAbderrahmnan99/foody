@@ -112,7 +112,7 @@ class DiningTableService
                 File::makeDirectory(storage_path('app/public/qr_codes/'));
             }
 
-            if (File::exists($diningTable->qr_code) && !$this->envService->getValue('DEMO')) {
+            if (File::exists($diningTable->qr_code)) {
                 File::delete($diningTable->qr_code);
             }
 
@@ -132,7 +132,7 @@ class DiningTableService
     {
         try {
 
-            if (File::exists($diningTable->qr_code) && !$this->envService->getValue('DEMO')) {
+            if (File::exists($diningTable->qr_code)) {
                 File::delete($diningTable->qr_code);
             }
             $diningTable->delete();

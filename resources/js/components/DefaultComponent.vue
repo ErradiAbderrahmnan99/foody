@@ -70,14 +70,6 @@ export default {
                 language_id: res.data.data.site_default_language
             });
         }).catch();
-
-        if (env.DEMO === "true" || env.DEMO === 'TRUE' || env.DEMO === true || env.DEMO === "1" || env.DEMO === 1) {
-            this.$store.dispatch("authcheck").then(res => {
-                if (res.data.status === false && (this.theme == "frontend" || this.theme == "backend")) {
-                    this.$router.push({ name: "auth.login" });
-                };
-            }).catch();
-        }
     },
     watch: {
         $route(e) {

@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Dipokhalder\EnvEditor\EnvEditor;
 use Illuminate\Database\Seeder;
 use App\Models\ItemAddon;
 
@@ -15,9 +14,7 @@ class ItemAddonTableSeeder extends Seeder
      */
     public function run()
     {
-        $envService = new EnvEditor();
-        if ($envService->getValue('DEMO')) {
-            ItemAddon::insert([
+ItemAddon::insert([
                 [
                     'item_id'              => 1,
                     'addon_item_id'        => 55,
@@ -621,6 +618,6 @@ class ItemAddonTableSeeder extends Seeder
                     'updated_at'           => now()
                 ],
             ]);
-        }
+        
     }
 }

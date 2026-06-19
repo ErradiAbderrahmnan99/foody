@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Offer;
-use Dipokhalder\EnvEditor\EnvEditor;
 use Illuminate\Database\Seeder;
 use App\Enums\Status;
 use Carbon\Carbon;
@@ -18,9 +17,7 @@ class OfferTableSeeder extends Seeder
      */
     public function run()
     {
-        $envService = new EnvEditor();
-        if ($envService->getValue('DEMO')) {
-            $offers = [
+$offers = [
                 [
                     'name'       => 'Savory and Satisfying',
                     'slug'       => Str::slug('Savory and Satisfying'),
@@ -55,6 +52,6 @@ class OfferTableSeeder extends Seeder
                     )->preservingOriginal()->toMediaCollection('offer');
                 }
             }
-        }
+        
     }
 }

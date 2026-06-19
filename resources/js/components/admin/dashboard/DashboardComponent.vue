@@ -34,7 +34,6 @@ import FeaturedItemsComponent from "./FeaturedItemsComponent";
 import MostPopularItemsComponent from "./MostPopularItemsComponent";
 import SalesSummaryComponent from "./SalesSummaryComponent";
 import CustomerStatsComponent from "./CustomerStatsComponent";
-import ENV from "../../../config/env";
 
 export default {
     name: "DashboardComponent",
@@ -50,8 +49,7 @@ export default {
         return {
             loading: {
                 isActive: false,
-            },
-            demo: ENV.DEMO
+            }
         };
     },
     computed: {

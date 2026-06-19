@@ -69,10 +69,6 @@ class OtpManagerService
     public function verify(VerifyPhoneRequest $request) : bool
     {
         try {
-            if(env('DEMO')) {
-                return true;
-            }
-
             $otp = DB::table('otps')->where([
                 ['phone', $request->post('phone')],
                 ['token', $request->post('token')],

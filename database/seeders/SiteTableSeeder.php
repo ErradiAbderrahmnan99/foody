@@ -33,16 +33,12 @@ class SiteTableSeeder extends Seeder
             'site_email_verification'        => Activity::ENABLE,
             'site_phone_verification'        => Activity::DISABLE,
             'site_default_language'          => 3,
-            'site_google_map_key'            => $envService->getValue(
-                'DEMO'
-            ) ? 'Fake-map-key' : '',
-            'site_copyright'                 => $envService->getValue(
-                'DEMO'
-            ) ? '© Foody 2026, All Rights Reserved' : '',
+            'site_google_map_key'            => '',
+            'site_copyright'                 => '© Foody 2026, All Rights Reserved',
             'site_language_switch'        => Activity::ENABLE,
             'site_app_debug'              => Activity::DISABLE,
             'site_auto_update'            => Activity::DISABLE,
-            'site_online_payment_gateway' => $envService->getValue('DEMO') ? Activity::ENABLE : Activity::DISABLE,
+            'site_online_payment_gateway' => Activity::DISABLE,
             'site_default_sms_gateway'    => 0,
             'site_food_preparation_time'  => "30",
         ]);

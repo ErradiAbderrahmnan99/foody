@@ -572,29 +572,26 @@ class ItemTableSeeder extends Seeder
 
     public function run()
     {
-        $envService = new EnvEditor();
-        if ($envService->getValue('DEMO')) {
-            foreach ($this->items as $item) {
-                $itemObject = Item::create([
-                    'name'             => $item['name'],
-                    'slug'             => Str::slug($item['name']),
-                    'item_category_id' => $item['category'],
-                    'price'            => $item['price'],
-                    'status'           => Status::ACTIVE,
-                    'tax_id'           => $item['tax_id'],
-                    'item_type'        => $item['type'],
-                    'order'            => 1,
-                    'is_featured'      => $item['featured'],
-                    'caution'          => $item['caution'],
-                    'description'      => $item['description']
-                ]);
-                if (file_exists(
+        foreach ($this->items as $item) {
+            $itemObject = Item::create([
+                'name'             => $item['name'],
+                'slug'             => Str::slug($item['name']),
+                'item_category_id' => $item['category'],
+                'price'            => $item['price'],
+                'status'           => Status::ACTIVE,
+                'tax_id'           => $item['tax_id'],
+                'item_type'        => $item['type'],
+                'order'            => 1,
+                'is_featured'      => $item['featured'],
+                'caution'          => $item['caution'],
+                'description'      => $item['description']
+            ]);
+            if (file_exists(
+                public_path('/images/seeder/item/' . strtolower(str_replace(' ', '_', $item['name'])) . '.png')
+            )) {
+                $itemObject->addMedia(
                     public_path('/images/seeder/item/' . strtolower(str_replace(' ', '_', $item['name'])) . '.png')
-                )) {
-                    $itemObject->addMedia(
-                        public_path('/images/seeder/item/' . strtolower(str_replace(' ', '_', $item['name'])) . '.png')
-                    )->preservingOriginal()->toMediaCollection('item');
-                }
+                )->preservingOriginal()->toMediaCollection('item');
             }
         }
     }

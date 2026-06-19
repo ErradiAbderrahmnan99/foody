@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Enums\Status;
 use App\Models\Analytic;
 use App\Models\AnalyticSection;
-use Dipokhalder\EnvEditor\EnvEditor;
 use Illuminate\Database\Seeder;
 
 class AnalyticTableSeeder extends Seeder
@@ -17,9 +16,7 @@ class AnalyticTableSeeder extends Seeder
      */
     public function run()
     {
-        $envService = new EnvEditor();
-        if ($envService->getValue('DEMO')) {
-            Analytic::create([
+Analytic::create([
                 'name'   => 'Google',
                 'status' => Status::ACTIVE,
             ]);
@@ -38,6 +35,6 @@ class AnalyticTableSeeder extends Seeder
                         </script>",
                 'section'     => \App\Enums\AnalyticSection::HEAD
             ]);
-        }
+        
     }
 }

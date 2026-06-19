@@ -41,22 +41,16 @@ class NotificationService
     public function update(NotificationRequest $request)
     {
         try {
-            if (!$this->envService->getValue('DEMO')) {
+            AppLibrary::fcmDataBind($request);
+            Settings::group('notification')->set($request->validated());
 
-                AppLibrary::fcmDataBind($request);
-                Settings::group('notification')->set($request->validated());
-    
-                if ($request->notification_fcm_json_file) {
-                    $newFilename = 'service-account-file' . '.' . $request->file('notification_fcm_json_file')->getClientOriginalExtension();
-                    $setting = NotificationSetting::where('key', 'notification_fcm_json_file')->first();
-                    $setting->clearMediaCollection('notification-file');
-                    $setting->addMedia($request->file('notification_fcm_json_file'))->usingFileName($newFilename)->toMediaCollection('notification-file');
-                }
-                return $this->list();
-
-            } else {
-                throw new Exception(trans('all.message.feature_disable'), 422);
+            if ($request->notification_fcm_json_file) {
+                $newFilename = 'service-account-file' . '.' . $request->file('notification_fcm_json_file')->getClientOriginalExtension();
+                $setting = NotificationSetting::where('key', 'notification_fcm_json_file')->first();
+                $setting->clearMediaCollection('notification-file');
+                $setting->addMedia($request->file('notification_fcm_json_file'))->usingFileName($newFilename)->toMediaCollection('notification-file');
             }
+            return $this->list();
 
         } catch (Exception $exception) {
             Log::info($exception->getMessage());

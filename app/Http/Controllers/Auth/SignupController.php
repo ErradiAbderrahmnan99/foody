@@ -56,16 +56,12 @@ class SignupController extends Controller
             ['phone', $request->post('phone')]
         ]);
 
-        if(env('DEMO')) {
+        if (Settings::group('site')->get('site_phone_verification') == Activity::DISABLE) {
+            $otp?->delete();
             $flag = true;
         } else {
-            if (Settings::group('site')->get('site_phone_verification') == Activity::DISABLE) {
-                $otp?->delete();
+            if (!$otp->exists()) {
                 $flag = true;
-            } else {
-                if (!$otp->exists()) {
-                    $flag = true;
-                }
             }
         }
 

@@ -319,7 +319,10 @@ export default {
         logout: function () {
             this.$store.dispatch("logout").then(res => {
                 this.$router.push({ name: "auth.login" });
-            }).catch();
+            }).catch((err) => {
+                this.$store.dispatch('loginDataReset');
+                this.$router.push({ name: "auth.login" });
+            });
         },
         handleSidebar: function () {
             this.sidebarOpen = !this.sidebar;

@@ -82,7 +82,7 @@
             </div>
 
             <!-- Demo Quick Entry -->
-            <div v-if="demo === 'true' || demo === 'TRUE' || demo === 'True' || demo === '1' || demo === 1"
+            <div
                 class="bg-[#1E293B] border border-[#334155] shadow-xl rounded-2xl p-6 transition-all">
                 <h2 class="mb-4 text-center text-sm font-semibold text-[#94A3B8] uppercase tracking-wider">
                     {{ $t('message.for_quick_entree') }}

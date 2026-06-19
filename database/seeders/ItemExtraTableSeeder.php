@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 
-use Dipokhalder\EnvEditor\EnvEditor;
 use Illuminate\Database\Seeder;
 use App\Models\ItemExtra;
 use App\Enums\Status;
@@ -17,9 +16,7 @@ class ItemExtraTableSeeder extends Seeder
      */
     public function run()
     {
-        $envService = new EnvEditor();
-        if ($envService->getValue('DEMO')) {
-            ItemExtra::insert([
+ItemExtra::insert([
                 [
                     'item_id'    => 6,
                     'name'       => 'Add Tomato',
@@ -381,6 +378,6 @@ class ItemExtraTableSeeder extends Seeder
                     'updated_at' => now()
                 ],
             ]);
-        }
+        
     }
 }

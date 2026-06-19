@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\OfferItem;
-use Dipokhalder\EnvEditor\EnvEditor;
 use Illuminate\Database\Seeder;
 
 class OfferItemTableSeeder extends Seeder
@@ -15,9 +14,7 @@ class OfferItemTableSeeder extends Seeder
      */
     public function run()
     {
-        $envService = new EnvEditor();
-        if ($envService->getValue('DEMO')) {
-            OfferItem::insert([
+OfferItem::insert([
                 [
                     'offer_id'   => 1,
                     'item_id'    => 6,
@@ -55,6 +52,6 @@ class OfferItemTableSeeder extends Seeder
                     'updated_at' => now()
                 ]
             ]);
-        }
+        
     }
 }

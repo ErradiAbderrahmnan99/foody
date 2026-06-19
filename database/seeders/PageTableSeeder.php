@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Enums\Status;
 use App\Models\Page;
-use Dipokhalder\EnvEditor\EnvEditor;
 use Illuminate\Database\Seeder;
 
 class PageTableSeeder extends Seeder
@@ -16,9 +15,7 @@ class PageTableSeeder extends Seeder
      */
     public function run()
     {
-        $envService = new EnvEditor();
-        if ($envService->getValue('DEMO')) {
-            Page::insert([
+Page::insert([
                 [
                     'title'           => 'Cookies Policy',
                     'slug'            => 'cookies-policy',
@@ -97,6 +94,6 @@ If you have a concern about the way we are collecting or using cookies, you shou
                     'updated_at'      => now()
                 ],
             ]);
-        }
+        
     }
 }

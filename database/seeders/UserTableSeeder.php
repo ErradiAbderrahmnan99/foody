@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Enums\Ask;
 use App\Models\Address;
 use App\Enums\Role as EnumRole;
-use Dipokhalder\EnvEditor\EnvEditor;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Enums\Status;
@@ -20,8 +19,7 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        $envService = new EnvEditor();
-        $admin      = User::create([
+$admin      = User::create([
             'name'              => 'John Doe',
             'email'             => 'admin@example.com',
             'phone'             => '1254875855',
@@ -35,7 +33,7 @@ class UserTableSeeder extends Seeder
         ]);
         $admin->assignRole(EnumRole::ADMIN);
 
-        if ($envService->getValue('DEMO')) {
+        
             Address::create([
                 'label'     => 'Home',
                 'address'   => 'Morocco',
@@ -52,7 +50,7 @@ class UserTableSeeder extends Seeder
                 'longitude' => '90.3537',
                 'user_id'   => $admin->id,
             ]);
-        }
+        
 
         $customer = User::create([
             'name'              => 'Walking Customer',
@@ -68,7 +66,7 @@ class UserTableSeeder extends Seeder
         ]);
         $customer->assignRole(EnumRole::CUSTOMER);
 
-        if ($envService->getValue('DEMO')) {
+        
             Address::create([
                 'label'     => 'Home',
                 'address'   => 'Morocco',
@@ -85,9 +83,9 @@ class UserTableSeeder extends Seeder
                 'longitude' => '90.4143',
                 'user_id'   => $customer->id,
             ]);
-        }
+        
 
-        if ($envService->getValue('DEMO')) {
+        
             $customerOne = User::create([
                 'name'              => 'Will Smith',
                 'email'             => 'customer@example.com',
@@ -355,6 +353,6 @@ class UserTableSeeder extends Seeder
                 'longitude' => '90.3537',
                 'user_id'   => $chef->id,
             ]);
-        }
+        
     }
 }

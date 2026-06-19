@@ -217,7 +217,6 @@ export default {
                     status: null,
                 }
             },
-            demo: ENV.DEMO,
             ENV: ENV
         }
     },
@@ -240,8 +239,7 @@ export default {
             return appService.permissionChecker(e);
         },
         demoChecker: function (tableId) {
-            return ((this.demo === 'true' || this.demo === 'TRUE' || this.demo === '1' || this.demo === 1) && tableId !== 1 && tableId !== 2)
-                || this.demo === 'false' || this.demo === 'FALSE' || this.demo === "";
+            return true;
         },
         numberOnly: function (e) {
             return appService.floatNumber(e);

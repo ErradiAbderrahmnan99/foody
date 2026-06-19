@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 
-use Dipokhalder\EnvEditor\EnvEditor;
 use Illuminate\Database\Seeder;
 use App\Enums\Status;
 use App\Models\ItemVariation;
@@ -13,9 +12,7 @@ class ItemVariationTableSeeder extends Seeder
 
     public function run()
     {
-        $envService = new EnvEditor();
-        if ($envService->getValue('DEMO')) {
-            ItemVariation::insert([
+ItemVariation::insert([
                 [
                     'item_id'           => 1,
                     'item_attribute_id' => 1,
@@ -626,6 +623,6 @@ class ItemVariationTableSeeder extends Seeder
                     'status'            => Status::ACTIVE,
                 ],
             ]);
-        }
+        
     }
 }

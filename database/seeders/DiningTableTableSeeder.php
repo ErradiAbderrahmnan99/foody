@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Enums\Ask;
 use App\Models\DiningTable;
-use Dipokhalder\EnvEditor\EnvEditor;
 use Illuminate\Database\Seeder;
 use App\Models\Item;
 use Illuminate\Support\Facades\File;
@@ -50,9 +49,7 @@ class DiningTableTableSeeder extends Seeder
 
     public function run(): void
     {
-        $envService = new EnvEditor();
-        if ($envService->getValue('DEMO')) {
-            foreach ($this->tables as $table) {
+foreach ($this->tables as $table) {
                 $filename = Str::random(10) . '.svg';
                 if (!File::exists(storage_path('app/public/qr_codes/'))) {
                     File::makeDirectory(storage_path('app/public/qr_codes/'));
@@ -67,6 +64,6 @@ class DiningTableTableSeeder extends Seeder
                     'qr_code'   => 'storage/qr_codes/' . $filename
                 ]);
             }
-        }
+        
     }
 }
