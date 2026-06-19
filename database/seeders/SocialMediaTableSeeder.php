@@ -28,5 +28,11 @@ class SocialMediaTableSeeder extends Seeder
             'social_media_instagram' => $envService->getValue('DEMO') ? 'https://www.instagram.com/inilabsn' : '',
             'social_media_twitter'   => $envService->getValue('DEMO') ? 'https://twitter.com/inilabsn?lang=en' : ''
         ]);
+
+        Settings::group('otp')->set([
+            'otp_type'        => OtpType::BOTH,
+            'otp_digit_limit' => OtpDigitLimit::FOUR,
+            'otp_expire_time' => OtpExpireTime::TEN,
+        ]);
     }
 }

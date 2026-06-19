@@ -436,14 +436,6 @@ class PermissionTableSeeder extends Seeder
                 ]
             ],
             [
-                'title'      => 'Transactions',
-                'name'       => 'transactions',
-                'guard_name' => 'sanctum',
-                'url'        => 'transactions',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
                 'title'      => 'Sales Report',
                 'name'       => 'sales-report',
                 'guard_name' => 'sanctum',

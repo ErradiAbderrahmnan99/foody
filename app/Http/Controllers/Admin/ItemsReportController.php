@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use Exception;
 use App\Models\ThemeSetting;
 use App\Services\ItemService;
-use App\Services\ThemeService;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Services\CompanyService;
 use App\Exports\ItemsReportExport;
@@ -19,14 +18,12 @@ class ItemsReportController extends AdminController
 
     private ItemService $itemService;
     private CompanyService $companyService;
-    private ThemeService $themeService;
 
-    public function __construct(ItemService $itemService,CompanyService $companyService, ThemeService $themeService)
+    public function __construct(ItemService $itemService,CompanyService $companyService)
     {
         parent::__construct();
         $this->itemService = $itemService;
         $this->companyService= $companyService;
-        $this->themeService  = $themeService;
         $this->middleware(['permission:items-report'])->only('index', 'export', 'pdf');
     }
 

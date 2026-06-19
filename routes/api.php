@@ -12,7 +12,6 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SiteController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\OfferController;
-use App\Http\Controllers\Admin\ThemeController;
 use App\Http\Controllers\Auth\SignupController;
 use App\Http\Controllers\Admin\BranchController;
 use App\Http\Controllers\Admin\WaiterController;
@@ -20,7 +19,6 @@ use App\Http\Controllers\Admin\CompanyController;
 use App\Http\Controllers\Admin\CurrencyController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\EmployeeController;
-use App\Http\Controllers\Admin\LanguageController;
 use App\Http\Controllers\Admin\PosOrderController;
 use App\Http\Controllers\Admin\TimezoneController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -40,7 +38,6 @@ use App\Http\Controllers\Admin\ItemsReportController;
 use App\Http\Controllers\Admin\MenuSectionController;
 use App\Http\Controllers\Admin\PosCategoryController;
 use App\Http\Controllers\Admin\SalesReportController;
-use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Auth\RefreshTokenController;
 use App\Http\Controllers\Admin\ItemCategoryController;
 use App\Http\Controllers\Admin\MenuTemplateController;
@@ -211,10 +208,7 @@ Route::prefix('admin')->name('admin.')->middleware(['installed', 'apiKey', 'auth
             Route::delete('/{page}', [PageController::class, 'destroy']);
         });
 
-        Route::prefix('theme')->name('theme.')->group(function () {
-            Route::get('/', [ThemeController::class, 'index']);
-            Route::post('/', [ThemeController::class, 'update']);
-        });
+
 
 
         Route::prefix('payment-gateway')->name('payment-gateway.')->group(function () {
@@ -234,19 +228,6 @@ Route::prefix('admin')->name('admin.')->middleware(['installed', 'apiKey', 'auth
         Route::prefix('permission')->name('permission.')->group(function () {
             Route::get('/{role}', [PermissionController::class, 'index']);
             Route::match(['put', 'patch'], '/{role}', [PermissionController::class, 'update']);
-        });
-
-
-        Route::prefix('language')->name('language.')->group(function () {
-            Route::get('/', [LanguageController::class, 'index']);
-            Route::post('/', [LanguageController::class, 'store']);
-            Route::get('/show/{language}', [LanguageController::class, 'show']);
-            Route::match(['post', 'put', 'patch'], '/update/{language}', [LanguageController::class, 'update']);
-            Route::delete('/{language}', [LanguageController::class, 'destroy']);
-
-            Route::get('/file-list/{language:code}', [LanguageController::class, 'fileList']);
-            Route::post('/file-text', [LanguageController::class, 'fileText']);
-            Route::post('/file-text/store', [LanguageController::class, 'fileTextStore']);
         });
 
     });
@@ -426,11 +407,6 @@ Route::prefix('admin')->name('admin.')->middleware(['installed', 'apiKey', 'auth
     Route::prefix('country-code')->name('country-code.')->group(function () {
         Route::get('/', [CountryCodeController::class, 'index']);
         Route::get('/show/{country}', [CountryCodeController::class, 'show']);
-    });
-
-    Route::prefix('transaction')->name('transaction.')->middleware(['auth:sanctum'])->group(function () {
-        Route::get('/', [TransactionController::class, 'index']);
-        Route::get('/export', [TransactionController::class, 'export']);
     });
 
     Route::prefix('users')->name('users.')->group(function () {

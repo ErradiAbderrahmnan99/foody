@@ -72,47 +72,6 @@ class PaymentGatewayTableSeederVersionOne extends Seeder
                 ],
             ]
         ],
-        [
-            "name"    => "Stripe",
-            "slug"    => "stripe",
-            "misc"    => [
-                'input'  => ['stripe.stripeInput.blade.php'],
-                'js'     => ['stripe.stripeJs.blade.php'],
-                'submit' => true
-            ],
-            "status"  => Activity::DISABLE,
-            "options" => [
-                [
-                    "option"     => 'stripe_key',
-                    "type"       => InputType::TEXT,
-                    "activities" => ''
-
-                ],
-                [
-                    "option"     => 'stripe_secret',
-                    "type"       => InputType::TEXT,
-                    "activities" => ''
-
-                ],
-                [
-                    "option"     => 'stripe_mode',
-                    "type"       => InputType::SELECT,
-                    "activities" => [
-                        GatewayMode::SANDBOX => 'sandbox',
-                        GatewayMode::LIVE    => 'live'
-                    ]
-                ],
-                [
-                    "option"     => 'stripe_status',
-                    "value"      => Activity::DISABLE,
-                    "type"       => InputType::SELECT,
-                    "activities" => [
-                        Activity::ENABLE  => "enable",
-                        Activity::DISABLE => "disable",
-                    ]
-                ],
-            ]
-        ]
     ];
 
     public function run(): void

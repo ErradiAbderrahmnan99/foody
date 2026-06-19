@@ -17,7 +17,6 @@ import itemsReportRoutes from "./modules/itemsReportRoutes";
 import posRoutes from "./modules/posRoutes";
 import profileRoutes from "./modules/profileRoutes";
 import posOrderRoutes from "./modules/posOrderRoutes";
-import transactionRoutes from "./modules/transactionRoutes";
 import creditBalanceReportRoutes from "./modules/creditBalanceReportRoutes";
 import tableOrderRoutes from "./modules/tableOrderRoutes";
 import adminTableOrderRoutes from "./modules/adminTableOrderRoutes";
@@ -72,7 +71,6 @@ export const routes = baseRoutes.concat(
     profileRoutes,
     posRoutes,
     posOrderRoutes,
-    transactionRoutes,
     creditBalanceReportRoutes,
     tableOrderRoutes,
     adminTableOrderRoutes,

@@ -39,28 +39,6 @@ class PaymentGatewayDataTableSeeder extends Seeder
                 ],
             ]
         ],
-        [
-            "slug" => "stripe",
-            "status" => Activity::ENABLE,
-            "options" => [
-                [
-                    "option" => 'stripe_key',
-                    "value" => 'pk_test_6rhnZv1NmRtSp5DfziBO8YFb00X65CfFwq',
-                ],
-                [
-                    "option" => 'stripe_secret',
-                    "value" => 'sk_test_placeholder_secret_key',
-                ],
-                [
-                    "option" => 'stripe_mode',
-                    "value" => GatewayMode::SANDBOX,
-                ],
-                [
-                    "option" => 'stripe_status',
-                    "value" => Activity::ENABLE,
-                ],
-            ]
-        ]
     ];
 
     public function run(): void

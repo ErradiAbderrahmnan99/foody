@@ -19,10 +19,6 @@ import PageShowComponent from "../../components/admin/settings/Page/PageShowComp
 import RoleComponent from "../../components/admin/settings/Role/RoleComponent";
 import RoleListComponent from "../../components/admin/settings/Role/RoleListComponent";
 import RoleShowComponent from "../../components/admin/settings/Role/RoleShowComponent";
-import ThemeComponent from "../../components/admin/settings/Theme/ThemeComponent";
-import LanguageComponent from "../../components/admin/settings/Language/LanguageComponent";
-import LanguageListComponent from "../../components/admin/settings/Language/LanguageListComponent";
-import LanguageShowComponent from "../../components/admin/settings/Language/LanguageShowComponent";
 import PaymentGatewayComponent from "../../components/admin/settings/PaymentGateway/PaymentGatewayComponent";
 
 export default [
@@ -97,17 +93,7 @@ export default [
                 ],
             },
 
-            {
-                path: "theme",
-                component: ThemeComponent,
-                name: "admin.settings.theme",
-                meta: {
-                    isFrontend: false,
-                    auth: true,
-                    permissionUrl: "settings",
-                    breadcrumb: "theme",
-                },
-            },
+
             {
                 path: "currencies",
                 component: CurrencyComponent,
@@ -291,42 +277,7 @@ export default [
                     },
                 ],
             },
-            {
-                path: "languages",
-                component: LanguageComponent,
-                name: "admin.settings.language",
-                redirect: { name: "admin.settings.language.list" },
-                meta: {
-                    isFrontend: false,
-                    auth: true,
-                    permissionUrl: "settings",
-                    breadcrumb: "languages",
-                },
-                children: [
-                    {
-                        path: "list",
-                        component: LanguageListComponent,
-                        name: "admin.settings.language.list",
-                        meta: {
-                            isFrontend: false,
-                            auth: true,
-                            permissionUrl: "settings",
-                            breadcrumb: "",
-                        },
-                    },
-                    {
-                        path: "show/:id",
-                        component: LanguageShowComponent,
-                        name: "admin.settings.language.show",
-                        meta: {
-                            isFrontend: false,
-                            auth: true,
-                            permissionUrl: "settings",
-                            breadcrumb: "view",
-                        },
-                    },
-                ],
-            },
+
 
             {
                 path: "payment-gateway",

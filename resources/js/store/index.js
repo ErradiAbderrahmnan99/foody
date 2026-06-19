@@ -21,7 +21,6 @@ import { administratorAddress } from "./modules/administratorAddress";
 import { customerAddress } from "./modules/customerAddress";
 import { role } from "./modules/role";
 import { permission } from "./modules/permission";
-import { theme } from './modules/theme';
 import { employee } from './modules/employee';
 import { employeeAddress } from './modules/employeeAddress';
 import { itemExtra } from './modules/itemExtra';
@@ -91,7 +90,6 @@ export default new createStore({
         administratorAddress,
         role,
         permission,
-        theme,
         employee,
         employeeAddress,
         itemExtra,

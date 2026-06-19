@@ -11,7 +11,6 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\PaginateRequest;
 use App\Models\ThemeSetting;
 use App\Services\CompanyService;
-use App\Services\ThemeService;
 use Smartisan\Settings\Facades\Settings;
 use Barryvdh\DomPDF\Facade\Pdf;
 
@@ -25,14 +24,12 @@ class SalesReportController extends AdminController
 
     private OrderService $orderService;
     private CompanyService $companyService;
-    private ThemeService $themeService;
 
-    public function __construct(OrderService $order,CompanyService $companyService, ThemeService $themeService)
+    public function __construct(OrderService $order,CompanyService $companyService)
     {
         parent::__construct();
         $this->orderService = $order;
         $this->companyService= $companyService;
-        $this->themeService  = $themeService;
         $this->middleware(['permission:sales-report'])->only('index', 'export', 'pdf');
     }
 

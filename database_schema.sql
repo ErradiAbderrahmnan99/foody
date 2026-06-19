@@ -175,7 +175,7 @@ CREATE TABLE `currencies` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -185,11 +185,8 @@ CREATE TABLE `currencies` (
 LOCK TABLES `currencies` WRITE;
 /*!40000 ALTER TABLE `currencies` DISABLE KEYS */;
 INSERT INTO `currencies` VALUES
-(1,'Dollars','$','USD',10,1.00,NULL,NULL,NULL,NULL,NULL,NULL),
-(2,'Rupee','₹','INR',10,1.00,NULL,NULL,NULL,NULL,NULL,NULL),
-(3,'Taka','৳','BDT',10,1.00,NULL,NULL,NULL,NULL,NULL,NULL),
-(4,'Naira','₦','NGN',10,1.00,NULL,NULL,NULL,NULL,NULL,NULL),
-(5,'Peso','₱','ARS',10,1.00,NULL,NULL,NULL,NULL,NULL,NULL);
+(1,'Dirham','DH','MAD',10,1.00,NULL,NULL,NULL,NULL,NULL,NULL),
+(2,'Dollars','$','USD',10,1.00,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `currencies` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -330,12 +327,7 @@ INSERT INTO `gateway_options` VALUES
 (1,3,'App\\Models\\PaymentGateway','paypal_app_id','sb-qzxs18789565@business.example.com',5,'\"\"',NULL,NULL,NULL,NULL,'2026-06-04 00:01:19','2026-06-04 00:01:20'),
 (2,3,'App\\Models\\PaymentGateway','paypal_client_id','AbcV-BG5b30hjofcp2dj41GB1OYXE8_9-egRlV8z4R7vHiA-1mgL3Fvj3pkrOJyq0dC_vHNRAh_tp74p',5,'\"\"',NULL,NULL,NULL,NULL,'2026-06-04 00:01:19','2026-06-04 00:01:20'),
 (3,3,'App\\Models\\PaymentGateway','paypal_client_secret','EP6r5hEtBc6icJeEseZIiOJqSRnFvqNLI7yxjplzITaObh-t-516gGJ_EysXisLtEavaIMcjrG9aYprz',5,'\"\"',NULL,NULL,NULL,NULL,'2026-06-04 00:01:19','2026-06-04 00:01:20'),
-(4,3,'App\\Models\\PaymentGateway','paypal_mode','5',10,'{\"5\":\"sandbox\",\"10\":\"live\"}',NULL,NULL,NULL,NULL,'2026-06-04 00:01:19','2026-06-04 00:01:20'),
-(5,3,'App\\Models\\PaymentGateway','paypal_status','5',10,'{\"5\":\"enable\",\"10\":\"disable\"}',NULL,NULL,NULL,NULL,'2026-06-04 00:01:19','2026-06-04 00:01:20'),
-(6,4,'App\\Models\\PaymentGateway','stripe_key','pk_test_6rhnZv1NmRtSp5DfziBO8YFb00X65CfFwq',5,'\"\"',NULL,NULL,NULL,NULL,'2026-06-04 00:01:19','2026-06-04 00:01:20'),
-(7,4,'App\\Models\\PaymentGateway','stripe_secret','sk_test_placeholder_secret_key',5,'\"\"',NULL,NULL,NULL,NULL,'2026-06-04 00:01:19','2026-06-04 00:01:20'),
-(8,4,'App\\Models\\PaymentGateway','stripe_mode','5',10,'{\"5\":\"sandbox\",\"10\":\"live\"}',NULL,NULL,NULL,NULL,'2026-06-04 00:01:19','2026-06-04 00:01:20'),
-(9,4,'App\\Models\\PaymentGateway','stripe_status','5',10,'{\"5\":\"enable\",\"10\":\"disable\"}',NULL,NULL,NULL,NULL,'2026-06-04 00:01:19','2026-06-04 00:01:20');
+(5,3,'App\\Models\\PaymentGateway','paypal_status','5',10,'{\"5\":\"enable\",\"10\":\"disable\"}',NULL,NULL,NULL,NULL,'2026-06-04 00:01:19','2026-06-04 00:01:20');
 /*!40000 ALTER TABLE `gateway_options` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -872,7 +864,7 @@ CREATE TABLE `languages` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -883,7 +875,8 @@ LOCK TABLES `languages` WRITE;
 /*!40000 ALTER TABLE `languages` DISABLE KEYS */;
 INSERT INTO `languages` VALUES
 (1,'English','en',5,5,NULL,NULL,NULL,NULL,'2026-06-03 23:57:29','2026-06-03 23:57:29'),
-(2,'Arabic','ar',10,5,NULL,NULL,NULL,NULL,'2026-06-03 23:57:29','2026-06-03 23:57:29');
+(2,'Arabic','ar',10,5,NULL,NULL,NULL,NULL,'2026-06-03 23:57:29','2026-06-03 23:57:29'),
+(3,'French','fr',5,5,NULL,NULL,NULL,NULL,'2026-06-03 23:57:29','2026-06-03 23:57:29');
 /*!40000 ALTER TABLE `languages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -931,7 +924,6 @@ INSERT INTO `media` VALUES
 (2,'App\\Models\\PaymentGateway',1,'f4ff9bd5-bfb7-4ecd-9fe3-2349fbc63b83','payment-gateway','cash-on-delivery','cash-on-delivery.png','image/png','public','public',3437,'[]','[]','[]','[]',1,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
 (3,'App\\Models\\PaymentGateway',2,'143af68c-dbf0-4ee9-9223-37059557f898','payment-gateway','credit','credit.png','image/png','public','public',3885,'[]','[]','[]','[]',1,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
 (4,'App\\Models\\PaymentGateway',3,'882b24b0-b1be-4b7b-89bf-618faa7fd827','payment-gateway','paypal','paypal.png','image/png','public','public',3809,'[]','[]','[]','[]',1,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
-(5,'App\\Models\\PaymentGateway',4,'f6022ee8-0a9b-4674-8604-8c0b95ad2e3e','payment-gateway','stripe','stripe.png','image/png','public','public',3635,'[]','[]','[]','[]',1,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
 (6,'App\\Models\\PaymentGateway',5,'319bdbb0-a4e5-4a60-bff8-92afd0f84fda','payment-gateway','flutterwave','flutterwave.png','image/png','public','public',5191,'[]','[]','[]','[]',1,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
 (7,'App\\Models\\PaymentGateway',6,'07269735-e6a1-4944-aacd-a2d5bac43207','payment-gateway','paystack','paystack.png','image/png','public','public',4195,'[]','[]','[]','[]',1,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
 (8,'App\\Models\\PaymentGateway',7,'85d263e2-a123-442e-b585-38542250fe07','payment-gateway','sslcommerz','sslcommerz.png','image/png','public','public',4546,'[]','[]','[]','[]',1,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
@@ -1026,8 +1018,7 @@ INSERT INTO `media` VALUES
 (97,'App\\Models\\Language',2,'30efacfe-75a3-46da-b702-67310b969ebd','language','arabic','arabic.png','image/png','public','public',4388,'[]','[]','[]','[]',2,'2026-06-03 23:57:29','2026-06-03 23:57:29'),
 (98,'App\\Models\\PaymentGateway',1,'2c25679c-c359-4395-b3e3-7adedeae5e4d','payment-gateway','cash-on-delivery','cash-on-delivery.png','image/png','public','public',3437,'[]','[]','[]','[]',2,'2026-06-04 00:01:19','2026-06-04 00:01:19'),
 (99,'App\\Models\\PaymentGateway',2,'402762cc-e01f-45e6-b026-cd0b4136714a','payment-gateway','credit','credit.png','image/png','public','public',3885,'[]','[]','[]','[]',2,'2026-06-04 00:01:19','2026-06-04 00:01:19'),
-(100,'App\\Models\\PaymentGateway',3,'853bccae-8cd3-4a6c-b6dc-a686c79193e5','payment-gateway','paypal','paypal.png','image/png','public','public',3809,'[]','[]','[]','[]',2,'2026-06-04 00:01:19','2026-06-04 00:01:19'),
-(101,'App\\Models\\PaymentGateway',4,'6a7736e3-8d1a-404c-8d9a-2772f28b6deb','payment-gateway','stripe','stripe.png','image/png','public','public',3635,'[]','[]','[]','[]',2,'2026-06-04 00:01:19','2026-06-04 00:01:19');
+(100,'App\\Models\\PaymentGateway',3,'853bccae-8cd3-4a6c-b6dc-a686c79193e5','payment-gateway','paypal','paypal.png','image/png','public','public',3809,'[]','[]','[]','[]',2,'2026-06-04 00:01:19','2026-06-04 00:01:19');
 /*!40000 ALTER TABLE `media` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1140,8 +1131,6 @@ INSERT INTO `menus` VALUES
 (15,'Employees','employees','employees','lab lab-employee',1,12,1,100,'2026-06-02 02:16:38','2026-06-02 02:16:38'),
 (16,'Waiters','waiters','waiters','lab lab-waiter',1,12,1,100,'2026-06-02 02:16:38','2026-06-02 02:16:38'),
 (17,'Chef','chefs','chefs','lab lab-chef',1,12,1,100,'2026-06-02 02:16:38','2026-06-02 02:16:38'),
-(18,'Accounts','accounts','#','lab ',1,0,1,100,'2026-06-02 02:16:38','2026-06-02 02:16:38'),
-(19,'Transactions','transactions','transactions','lab lab-transactions',1,18,1,100,'2026-06-02 02:16:38','2026-06-02 02:16:38'),
 (20,'Reports','reports','#','lab ',1,0,1,100,'2026-06-02 02:16:38','2026-06-02 02:16:38'),
 (21,'Sales Report','sales_report','sales-report','lab lab-sales-report',1,20,1,100,'2026-06-02 02:16:38','2026-06-02 02:16:38'),
 (22,'Items Report','items_report','items-report','lab lab-items-report',1,20,1,100,'2026-06-02 02:16:38','2026-06-02 02:16:38'),
@@ -1685,8 +1674,7 @@ LOCK TABLES `payment_gateways` WRITE;
 INSERT INTO `payment_gateways` VALUES
 (1,'Cash On Delivery','cash-on-delivery','null',5,NULL,NULL,NULL,NULL,'2026-06-04 00:01:19','2026-06-04 00:01:19'),
 (2,'Credit','credit','null',5,NULL,NULL,NULL,NULL,'2026-06-04 00:01:19','2026-06-04 00:01:19'),
-(3,'Paypal','paypal','null',5,NULL,NULL,NULL,NULL,'2026-06-04 00:01:19','2026-06-04 00:01:20'),
-(4,'Stripe','stripe','{\"input\":[\"stripe.stripeInput.blade.php\"],\"js\":[\"stripe.stripeJs.blade.php\"],\"submit\":true}',5,NULL,NULL,NULL,NULL,'2026-06-04 00:01:19','2026-06-04 00:01:20');
+(3,'Paypal','paypal','null',5,NULL,NULL,NULL,NULL,'2026-06-04 00:01:19','2026-06-04 00:01:20');
 /*!40000 ALTER TABLE `payment_gateways` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1769,7 +1757,6 @@ INSERT INTO `permissions` VALUES
 (49,'Chefs Edit','chefs_edit','sanctum','chefs/edit',47,'2026-06-02 02:16:38','2026-06-02 02:16:38'),
 (50,'Chefs Delete','chefs_delete','sanctum','chefs/delete',47,'2026-06-02 02:16:38','2026-06-02 02:16:38'),
 (51,'Chefs Show','chefs_show','sanctum','chefs/show',47,'2026-06-02 02:16:38','2026-06-02 02:16:38'),
-(52,'Transactions','transactions','sanctum','transactions',0,'2026-06-02 02:16:38','2026-06-02 02:16:38'),
 (53,'Sales Report','sales-report','sanctum','sales-report',0,'2026-06-02 02:16:38','2026-06-02 02:16:38'),
 (54,'Items Report','items-report','sanctum','items-report',0,'2026-06-02 02:16:38','2026-06-02 02:16:38'),
 (55,'Credit Balance Report','credit-balance-report','sanctum','credit-balance-report',0,'2026-06-02 02:16:38','2026-06-02 02:16:38'),
@@ -2054,15 +2041,15 @@ INSERT INTO `settings` VALUES
 (9,'company','company_address','{\"$value\":\"House : 25, Road No: 2, Block A, Mirpur-1, Dhaka 1216\",\"$cast\":null}',NULL,NULL,'2026-06-10 00:46:52','2026-06-10 00:46:52'),
 (10,'site','site_date_format','{\"$value\":\"d-m-Y\",\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
 (11,'site','site_time_format','{\"$value\":\"h:i A\",\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
-(12,'site','site_default_timezone','{\"$value\":\"Asia\\/Dhaka\",\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
+(12,'site','site_default_timezone','{\"$value\":\"Africa\\/Casablanca\",\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
 (13,'site','site_default_branch','{\"$value\":1,\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
 (14,'site','site_default_currency','{\"$value\":1,\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
-(15,'site','site_default_currency_symbol','{\"$value\":\"$\",\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
-(16,'site','site_currency_position','{\"$value\":5,\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
+(15,'site','site_default_currency_symbol','{\"$value\":\"DH\",\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
+(16,'site','site_currency_position','{\"$value\":10,\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
 (17,'site','site_digit_after_decimal_point','{\"$value\":\"2\",\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
 (18,'site','site_email_verification','{\"$value\":5,\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
 (19,'site','site_phone_verification','{\"$value\":10,\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
-(20,'site','site_default_language','{\"$value\":1,\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
+(20,'site','site_default_language','{\"$value\":3,\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
 (21,'site','site_google_map_key','{\"$value\":\"Fake-map-key\",\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
 (22,'site','site_copyright','{\"$value\":\"\\u00a9 Foody 2026, All Rights Reserved\",\"$cast\":null}',NULL,NULL,'2026-06-04 02:00:20','2026-06-04 02:00:20'),
 (23,'site','site_language_switch','{\"$value\":5,\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
@@ -2130,7 +2117,7 @@ CREATE TABLE `taxes` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2140,11 +2127,9 @@ CREATE TABLE `taxes` (
 LOCK TABLES `taxes` WRITE;
 /*!40000 ALTER TABLE `taxes` DISABLE KEYS */;
 INSERT INTO `taxes` VALUES
-(1,'No-VAT','VAT-0',0.000000,10,5,NULL,NULL,NULL,NULL,'2026-06-02 02:16:41','2026-06-02 02:16:41'),
-(2,'VAT','VAT-5%',5.000000,10,5,NULL,NULL,NULL,NULL,'2026-06-02 02:16:41','2026-06-02 02:16:41'),
-(3,'VAT','VAT-10%',10.000000,10,5,NULL,NULL,NULL,NULL,'2026-06-02 02:16:41','2026-06-02 02:16:41'),
-(4,'GST','GST-5%',5.000000,10,5,NULL,NULL,NULL,NULL,'2026-06-02 02:16:41','2026-06-02 02:16:41'),
-(5,'GST','GST-10%',10.000000,10,5,NULL,NULL,NULL,NULL,'2026-06-02 02:16:41','2026-06-02 02:16:41');
+(1,'TVA','TVA-0%',0.000000,10,5,NULL,NULL,NULL,NULL,'2026-06-02 02:16:41','2026-06-02 02:16:41'),
+(2,'TVA','TVA-12%',12.000000,10,5,NULL,NULL,NULL,NULL,'2026-06-02 02:16:41','2026-06-02 02:16:41'),
+(3,'TVA','TVA-20%',20.000000,10,5,NULL,NULL,NULL,NULL,'2026-06-02 02:16:41','2026-06-02 02:16:41');
 /*!40000 ALTER TABLE `taxes` ENABLE KEYS */;
 UNLOCK TABLES;
 

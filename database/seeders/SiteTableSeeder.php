@@ -27,12 +27,12 @@ class SiteTableSeeder extends Seeder
             'site_default_timezone'          => 'Africa/Casablanca',
             'site_default_branch'            => 1,
             'site_default_currency'          => 1,
-            'site_default_currency_symbol'   => '$',
-            'site_currency_position'         => CurrencyPosition::LEFT,
+            'site_default_currency_symbol'   => 'DH',
+            'site_currency_position'         => CurrencyPosition::RIGHT,
             'site_digit_after_decimal_point' => '2',
             'site_email_verification'        => Activity::ENABLE,
             'site_phone_verification'        => Activity::DISABLE,
-            'site_default_language'          => 1,
+            'site_default_language'          => 3,
             'site_google_map_key'            => $envService->getValue(
                 'DEMO'
             ) ? 'Fake-map-key' : '',
@@ -50,9 +50,9 @@ class SiteTableSeeder extends Seeder
         $envService->addData([
             'APP_DEBUG'              => 'false',
             'TIMEZONE'               => 'Africa/Casablanca',
-            'CURRENCY'               => 'USD',
-            'CURRENCY_SYMBOL'        => '$',
-            'CURRENCY_POSITION'      => '5',
+            'CURRENCY'               => 'MAD',
+            'CURRENCY_SYMBOL'        => 'DH',
+            'CURRENCY_POSITION'      => '10',
             'CURRENCY_DECIMAL_POINT' => '2',
             'DATE_FORMAT'            => 'd-m-Y',
             'TIME_FORMAT'            => 'h:i A'

@@ -18,10 +18,6 @@
                 <i class="lab lab-branches text-sm"></i>
                 {{ $t("menu.branches") }}
             </router-link>
-            <router-link :to="{ name: 'admin.settings.theme' }" class="db-tab-btn">
-                <i class="lab lab-theme text-sm"></i>
-                {{ $t("menu.theme") }}
-            </router-link>
             <router-link :to="{ name: 'admin.settings.currency' }" class="db-tab-btn">
                 <i class="lab lab-currencies text-sm"></i>
                 {{ $t("menu.currencies") }}
@@ -45,10 +41,6 @@
             <router-link :to="{ name: 'admin.settings.role' }" class="db-tab-btn">
                 <i class="lab lab-role-permissions text-sm"></i>
                 {{ $t("menu.role_permissions") }}
-            </router-link>
-            <router-link :to="{ name: 'admin.settings.language' }" class="db-tab-btn">
-                <i class="lab lab-languages text-sm"></i>
-                {{ $t("menu.languages") }}
             </router-link>
             <router-link :to="{ name: 'admin.settings.paymentGateway' }" class="db-tab-btn">
                 <i class="lab lab-payment-gateway text-sm"></i>

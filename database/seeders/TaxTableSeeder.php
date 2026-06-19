@@ -22,8 +22,8 @@ class TaxTableSeeder extends Seeder
         if ($envService->getValue('DEMO')) {
             Tax::insert([
                 [
-                    'name'       => 'No-VAT',
-                    'code'       => 'VAT-0',
+                    'name'       => 'TVA',
+                    'code'       => 'TVA-0%',
                     'tax_rate'   => 0,
                     'type'       => TaxType::PERCENTAGE,
                     'status'     => Status::ACTIVE,
@@ -31,37 +31,18 @@ class TaxTableSeeder extends Seeder
                     'updated_at' => now()
                 ],
                 [
-                    'name'       => 'VAT',
-                    'code'       => 'VAT-5%',
-                    'tax_rate'   => 5,
+                    'name'       => 'TVA',
+                    'code'       => 'TVA-12%',
+                    'tax_rate'   => 12,
                     'type'       => TaxType::PERCENTAGE,
                     'status'     => Status::ACTIVE,
                     'created_at' => now(),
                     'updated_at' => now()
                 ],
                 [
-                    'name'       => 'VAT',
-                    'code'       => 'VAT-10%',
-                    'tax_rate'   => 10,
-                    'type'       => TaxType::PERCENTAGE,
-                    'status'     => Status::ACTIVE,
-                    'created_at' => now(),
-                    'updated_at' => now()
-                ],
-                [
-                    'name'       => 'GST',
-                    'code'       => 'GST-5%',
-                    'tax_rate'   => 5,
-                    'type'       => TaxType::PERCENTAGE,
-                    'status'     => Status::ACTIVE,
-                    'created_at' => now(),
-                    'updated_at' => now()
-                ],
-
-                [
-                    'name'       => 'GST',
-                    'code'       => 'GST-10%',
-                    'tax_rate'   => 10,
+                    'name'       => 'TVA',
+                    'code'       => 'TVA-20%',
+                    'tax_rate'   => 20,
                     'type'       => TaxType::PERCENTAGE,
                     'status'     => Status::ACTIVE,
                     'created_at' => now(),

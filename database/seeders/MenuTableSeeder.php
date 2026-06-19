@@ -190,29 +190,6 @@ class MenuTableSeeder extends Seeder
                 ]
             ],
             [
-                'name'       => 'Accounts',
-                'language'   => 'accounts',
-                'url'        => '#',
-                'icon'       => 'lab ',
-                'priority'   => 100,
-                'status'     => 1,
-                'created_at' => now(),
-                'updated_at' => now(),
-                'children'   => [
-                    [
-                        'name'       => 'Transactions',
-                        'language'   => 'transactions',
-                        'url'        => 'transactions',
-                        'icon'       => 'lab lab-transactions',
-                        'priority'   => 100,
-                        'status'     => 1,
-                        'created_at' => now(),
-                        'updated_at' => now()
-
-                    ]
-                ]
-            ],
-            [
                 'name'       => 'Reports',
                 'language'   => 'reports',
                 'url'        => '#',

@@ -33,6 +33,13 @@ class LanguageTableSeeder extends Seeder
             'status'            => Status::ACTIVE
         ];
 
+        $frenchLanguageArray = [
+            'name'              => 'French',
+            'code'              => 'fr',
+            'display_mode'      => DisplayMode::LTR,
+            'status'            => Status::ACTIVE
+        ];
+
         $englishLanguage = Language::create($englishLanguageArray);
         if(file_exists(public_path('/images/language/english.png'))) {
             $englishLanguage->addMedia(public_path('/images/language/english.png'))->preservingOriginal()->toMediaCollection('language');
@@ -43,5 +50,9 @@ class LanguageTableSeeder extends Seeder
             $arabicLanguage->addMedia(public_path('/images/language/arabic.png'))->preservingOriginal()->toMediaCollection('language');
         }
 
+        $frenchLanguage = Language::create($frenchLanguageArray);
+        if (file_exists(public_path('/images/language/french.png'))) {
+            $frenchLanguage->addMedia(public_path('/images/language/french.png'))->preservingOriginal()->toMediaCollection('language');
+        }
     }
 }
