@@ -19,14 +19,14 @@ class CompanyTableSeeder extends Seeder
     {
         Settings::group('company')->set([
             'company_name'         => 'Foody - QrCode Restaurant Menu Maker and Contactless Menu Ordering system',
-            'company_email'        => 'info@foody.xyz',
-            'company_phone'        => '+13333846282',
-            'company_website'      => 'https://foody.xyz',
-            'company_city'         => 'Mirpur 1',
-            'company_state'        => 'Dhaka',
+            'company_email'        => 'info@foody.com',
+            'company_phone'        => '+212661234567',
+            'company_website'      => 'https://foody.com',
+            'company_city'         => 'Casablanca',
+            'company_state'        => 'Casablanca-Settat',
             'company_country_code' => 'MAR',
-            'company_zip_code'     => '1216',
-            'company_address'      => 'House : 25, Road No: 2, Block A, Mirpur-1, Dhaka 1216'
+            'company_zip_code'     => '20250',
+            'company_address'      => 'Boulevard Mohammed V, Résidence Al Fath, N°25, Maârif, Casablanca 20250'
         ]);
 
         $envService = new EnvEditor();

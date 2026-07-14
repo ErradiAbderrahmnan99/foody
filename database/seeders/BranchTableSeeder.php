@@ -16,29 +16,29 @@ class BranchTableSeeder extends Seeder
     public function run()
     {
         Branch::create([
-            'name'      => 'Mirpur-1',
-            'email'     => 'mirpur@inilabs.xyz',
-            'phone'     => '+536464646464',
-            'latitude'  => 23.8042375,
-            'longitude' => 90.3525979,
-            'city'      => 'Mirpur-1',
-            'state'     => 'Dhaka',
-            'zip_code'  => '1216',
-            'address'   => 'House : 25, Road No: 2, Block A, Mirpur-1, Dhaka 1216',
+            'name'      => 'Casablanca - Maârif',
+            'email'     => 'casablanca@foody.com',
+            'phone'     => '+212661234567',
+            'latitude'  => 33.5731,
+            'longitude' => -7.5898,
+            'city'      => 'Casablanca',
+            'state'     => 'Casablanca-Settat',
+            'zip_code'  => '20250',
+            'address'   => 'Boulevard Zerktouni, Résidence Al Fath, N°25, Maârif, Casablanca 20250',
             'status'    => Status::ACTIVE,
         ]);
-Branch::create([
-                'name'      => 'Gulshan-1',
-                'email'     => 'gulshan@inilabs.xyz',
-                'phone'     => '+1243535366',
-                'latitude'  => 23.7948597,
-                'longitude' => 90.4083123,
-                'city'      => 'Gulshan-1',
-                'state'     => 'Dhaka',
-                'zip_code'  => '1212',
-                'address'   => '1st floor, Adam Building, House: 41 Road: 52, Dhaka 1212',
-                'status'    => Status::ACTIVE,
-            ]);
+        Branch::create([
+            'name'      => 'Rabat - Agdal',
+            'email'     => 'rabat@foody.com',
+            'phone'     => '+212670123456',
+            'latitude'  => 33.9716,
+            'longitude' => -6.8498,
+            'city'      => 'Rabat',
+            'state'     => 'Rabat-Salé-Kénitra',
+            'zip_code'  => '10080',
+            'address'   => 'Avenue Ibn Sina, Immeuble Atlas, N°12, Agdal, Rabat 10080',
+            'status'    => Status::ACTIVE,
+        ]);
         
     }
 }

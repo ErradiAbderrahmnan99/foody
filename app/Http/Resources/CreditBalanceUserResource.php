@@ -24,8 +24,9 @@ class CreditBalanceUserResource extends JsonResource
             "phone"            => $this->phone,
             "email"            => $this->email,
             'username'         => $this->username,
-            "balance"          => AppLibrary::flatAmountFormat($this->balance),
-            "currency_balance" => AppLibrary::currencyAmountFormat($this->balance),
+            "balance"          => AppLibrary::flatAmountFormat($this->total_spent ?? 0),
+            "currency_balance" => AppLibrary::currencyAmountFormat($this->total_spent ?? 0),
+            "total_orders"     => $this->total_orders ?? 0,
             "country_code"     => $this->country_code,
         ];
     }

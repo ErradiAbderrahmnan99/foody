@@ -14,7 +14,7 @@ class ItemAddonTableSeeder extends Seeder
      */
     public function run()
     {
-ItemAddon::insert([
+        $addons = [
                 [
                     'item_id'              => 1,
                     'addon_item_id'        => 55,
@@ -617,7 +617,12 @@ ItemAddon::insert([
                     'created_at'           => now(),
                     'updated_at'           => now()
                 ],
-            ]);
-        
+        ];
+
+        $filtered = array_filter($addons, function($a) {
+            return $a['item_id'] <= 20 && $a['addon_item_id'] <= 20;
+        });
+
+        ItemAddon::insert(array_values($filtered));
     }
 }

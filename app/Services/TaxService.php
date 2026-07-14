@@ -84,9 +84,15 @@ class TaxService
             if (!blank($checkItem)) {
                 $tax->delete();
             } else {
-                DB::statement('SET FOREIGN_KEY_CHECKS=0');
-                $tax->delete();
-                DB::statement('SET FOREIGN_KEY_CHECKS=1');
+                if (DB::getDriverName() === 'sqlite') {
+                    DB::statement('PRAGMA foreign_keys = OFF');
+                    $tax->delete();
+                    DB::statement('PRAGMA foreign_keys = ON');
+                } else {
+                    DB::statement('SET FOREIGN_KEY_CHECKS=0');
+                    $tax->delete();
+                    DB::statement('SET FOREIGN_KEY_CHECKS=1');
+                }
             }
         } catch (Exception $exception) {
             Log::info(QueryExceptionLibrary::message($exception));

@@ -4,6 +4,7 @@ namespace App\Services;
 
 use Exception;
 use App\Models\User;
+use App\Enums\Role;
 use Illuminate\Support\Facades\Log;
 use App\Http\Requests\PaginateRequest;
 use App\Libraries\QueryExceptionLibrary;
@@ -24,7 +25,9 @@ class SimpleUserService
             $orderColumn = $request->get('order_column') ?? 'id';
             $orderType   = $request->get('order_type') ?? 'desc';
 
-            return User::where(function ($query) use ($requests) {
+            return User::whereHas('roles', function ($query) {
+                $query->where('id', Role::CUSTOMER);
+            })->where(function ($query) use ($requests) {
                 foreach ($requests as $key => $request) {
                     if (in_array($key, $this->roleFilter)) {
                         $query->whereHas('roles', function ($query) use ($request) {

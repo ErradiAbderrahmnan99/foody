@@ -16,7 +16,7 @@ class ItemExtraTableSeeder extends Seeder
      */
     public function run()
     {
-ItemExtra::insert([
+        $extras = [
                 [
                     'item_id'    => 6,
                     'name'       => 'Add Tomato',
@@ -377,7 +377,12 @@ ItemExtra::insert([
                     'created_at' => now(),
                     'updated_at' => now()
                 ],
-            ]);
-        
+        ];
+
+        $filtered = array_filter($extras, function($e) {
+            return $e['item_id'] <= 20;
+        });
+
+        ItemExtra::insert(array_values($filtered));
     }
 }

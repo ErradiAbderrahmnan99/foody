@@ -1,7 +1,7 @@
 /*M!999999\- enable the sandbox mode */ 
 -- MariaDB dump 10.19  Distrib 10.11.16-MariaDB, for Linux (x86_64)
 --
--- Host: localhost    Database: foodscan
+-- Host: localhost    Database: foody
 -- ------------------------------------------------------
 -- Server version	10.11.16-MariaDB
 
@@ -2060,9 +2060,9 @@ INSERT INTO `settings` VALUES
 (28,'site','site_food_preparation_time','{\"$value\":\"30\",\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
 (29,'notification','notification_fcm_public_vapid_key','{\"$value\":\"BB_1q5RVeHAFd69HDCkeQA62vFohxS_YEA4gVT45JfKeF7-P9UJ3GEypSRb5seCIYb6fI7E2dlXvj0sqbNIXieo\",\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
 (30,'notification','notification_fcm_api_key','{\"$value\":\"AIzaSyBLVngaS_tDeMogfNmVEfqQ1u_HyqXMqc4\",\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
-(31,'notification','notification_fcm_auth_domain','{\"$value\":\"foodscan-5102b.firebaseapp.com\",\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
-(32,'notification','notification_fcm_project_id','{\"$value\":\"foodscan-5102b\",\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
-(33,'notification','notification_fcm_storage_bucket','{\"$value\":\"foodscan-5102b.appspot.com\",\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
+(31,'notification','notification_fcm_auth_domain','{\"$value\":\"foody.apps.com\",\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
+(32,'notification','notification_fcm_project_id','{\"$value\":\"foody\",\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
+(33,'notification','notification_fcm_storage_bucket','{\"$value\":\"foody.appspot.com\",\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
 (34,'notification','notification_fcm_messaging_sender_id','{\"$value\":\"1068326850326\",\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
 (35,'notification','notification_fcm_app_id','{\"$value\":\"1:1068326850326:web:fb724f0c9ae7f487ee4a37\",\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
 (36,'notification','notification_fcm_measurement_id','{\"$value\":\"G-8SFLD2GVEV\",\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:39','2026-06-02 02:16:39'),
@@ -2073,7 +2073,7 @@ INSERT INTO `settings` VALUES
 (41,'mail','mail_username','{\"$value\":\"inilabsd@inilabs.dev\",\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:41','2026-06-02 02:16:41'),
 (42,'mail','mail_password','{\"$value\":\"rb-XO$3~dc4q\",\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:41','2026-06-02 02:16:41'),
 (43,'mail','mail_encryption','{\"$value\":\"ssl\",\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:41','2026-06-02 02:16:41'),
-(44,'mail','mail_from_name','{\"$value\":\"FoodScan - Inilabs Food Manager\",\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:41','2026-06-02 02:16:41'),
+(44,'mail','mail_from_name','{\"$value\":\"Foody - Inilabs Food Manager\",\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:41','2026-06-02 02:16:41'),
 (45,'mail','mail_from_email','{\"$value\":\"inilabsd@inilabs.dev\",\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:41','2026-06-02 02:16:41'),
 (46,'order_setup','order_setup_food_preparation_time','{\"$value\":\"30\",\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:41','2026-06-02 02:16:41'),
 (47,'order_setup','order_setup_schedule_order_slot_duration','{\"$value\":\"30\",\"$cast\":null}',NULL,NULL,'2026-06-02 02:16:41','2026-06-02 02:16:41'),

@@ -12,7 +12,7 @@ class ItemVariationTableSeeder extends Seeder
 
     public function run()
     {
-ItemVariation::insert([
+        $variations = [
                 [
                     'item_id'           => 1,
                     'item_attribute_id' => 1,
@@ -622,7 +622,12 @@ ItemVariation::insert([
                     'price'             => '1.00',
                     'status'            => Status::ACTIVE,
                 ],
-            ]);
-        
+        ];
+
+        $filtered = array_filter($variations, function($v) {
+            return $v['item_id'] <= 20;
+        });
+
+        ItemVariation::insert(array_values($filtered));
     }
 }

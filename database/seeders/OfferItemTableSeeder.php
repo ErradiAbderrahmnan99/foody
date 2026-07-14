@@ -14,7 +14,7 @@ class OfferItemTableSeeder extends Seeder
      */
     public function run()
     {
-OfferItem::insert([
+        $offerItems = [
                 [
                     'offer_id'   => 1,
                     'item_id'    => 6,
@@ -51,7 +51,12 @@ OfferItem::insert([
                     'created_at' => now(),
                     'updated_at' => now()
                 ]
-            ]);
-        
+            ];
+
+        $filtered = array_filter($offerItems, function($o) {
+            return $o['item_id'] <= 20;
+        });
+
+        OfferItem::insert(array_values($filtered));
     }
 }
